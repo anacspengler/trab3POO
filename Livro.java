@@ -1,12 +1,12 @@
 abstract class Livro
 {
     private String nome;
-    private String tipo;
+    private String genero;
 
-    Livro(String nome, String tipo)
+    Livro(String nome, String genero)
     {
         this.nome = nome;
-        this.tipo = tipo;
+        this.genero = genero;
     }
 
     String getNome()

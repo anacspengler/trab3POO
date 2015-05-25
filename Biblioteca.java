@@ -27,17 +27,17 @@ public class Biblioteca
         usuarios.add(usuario);
     }
 
-    void cadastrarLivro(String nome, String tipo)
+    void cadastrarLivro(String nome, String genero, String tipo)
     {
         Livro livro = null;
 
         switch(tipo)
         {
             case "texto":
-                livro = new Texto(nome,tipo);
+                livro = new Texto(nome,genero);
 
             case "geral":
-                livro = new Geral(nome,tipo);
+                livro = new Geral(nome,genero);
         }
 
         livros.add(livro);
