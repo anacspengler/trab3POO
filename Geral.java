@@ -1,7 +1,7 @@
 public class Geral extends Livro
 {
-    Geral(String tipo)
+    Geral(String nome, String tipo)
     {
-        super(tipo);
+        super(nome,tipo);
     }
 }

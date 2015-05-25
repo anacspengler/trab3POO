@@ -1,7 +1,7 @@
 public class Texto extends Livro
 {
-    Texto(String tipo)
+    Texto(String nome, String tipo)
     {
-        super(tipo);
+        super(nome,tipo);
     }
 }

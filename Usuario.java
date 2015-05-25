@@ -8,4 +8,9 @@ abstract class Usuario
         this.nome = nome;
         this.identificador = identificador;
     }
+
+    String getNome()
+    {
+        return this.nome;
+    }
 }
