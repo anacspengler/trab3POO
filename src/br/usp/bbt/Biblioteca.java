@@ -8,7 +8,7 @@ public class Biblioteca
     Set<Usuario> usuarios;
     Set<Livro> livros;
     Set<Emprestimo> emprestimos;
-    Date dataAtual;
+    long dataAtual;
     CSVDataBase dados;
 
     /**
@@ -18,7 +18,7 @@ public class Biblioteca
      */
     public Biblioteca(Path dir)
     {
-        this(dir, new Date());
+        this(dir, System.currentTimeMillis());
     }
 
     /**
@@ -27,7 +27,7 @@ public class Biblioteca
      * \param dir Diretório usado para carregar e salvar os dados.
      * \param data Data da biblioteca simulada.
      */
-    public Biblioteca(Path dir, Date data)
+    public Biblioteca(Path dir, long data)
     {
         dados = new CSVDataBase(dir);
         carregaDados();
@@ -78,9 +78,13 @@ public class Biblioteca
     {
     }
 
+    public boolean estaDisponivel(Livro l)
+    {
+    }
+
     // "Getters e setters"
     public Set<Usuario> pegaUsuarios() {return usuarios;}
     public Set<Livro> pegaLivros() {return livros;}
     public Set<Emprestimo> pegaEmprestimos() {return emprestimos;}
-    public void defineData(Date data) {this.dataAtual = data;}
+    public void defineData(long data) {this.dataAtual = data;}
 }
