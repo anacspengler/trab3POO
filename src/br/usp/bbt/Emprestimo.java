@@ -18,17 +18,16 @@ class Emprestimo
         this.id = id;
         this.data_emp = data_emp;
         this.data_dev = data_dev;
-        this.data_rec = null;
+        this.data_rec = -1;
     }
 
-    public void devolve(long data)
-    {
-        if(devolvido()) return;
+    // Registra a data em que o livro for de fato recebido de volta
+    public void devolve(long data) {this.data_rec = data;}
 
-        this.data_rec = data;
-    }
+    // Checa se ja foi devolvido
+    public boolean devolvido() {return data_rec >= 0;}
 
-    public boolean devolvido() {return data_rec == null;}
+    // Getters
     public long pegaDataEmprestado() {return data_emp;}
     public long pegaDataDevolucao() {return data_dev;}
     public long pegaDataRecebido() {return data_rec;}

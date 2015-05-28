@@ -80,6 +80,7 @@ public class Biblioteca
 
     public boolean estaDisponivel(Livro l)
     {
+        return false;
     }
 
     // "Getters e setters"
