@@ -10,7 +10,7 @@ public class Comunidade extends Usuario
         this.livros_emprestados = livros;
     }
 
-    public Emprestimo emprestaLivro(Livro l, long data_atual)
+    public Emprestimo emprestaLivro(Livro l, long data_atual) throws EmprestimoException
     {
         // Impede de emprestar seja por penalização, ou por que eh um
         // livro texto, ou por causa do limite de emprestimos

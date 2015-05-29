@@ -10,7 +10,7 @@ public class Aluno extends Usuario
         this.livros_emprestados = livros;
     }
 
-    public Emprestimo emprestaLivro(Livro l, long data_atual)
+    public Emprestimo emprestaLivro(Livro l, long data_atual) throws EmprestimoException
     {
         if(!estaPenalizado(data_atual) && livros_emprestados < 4)
         {

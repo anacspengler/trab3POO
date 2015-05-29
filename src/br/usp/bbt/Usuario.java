@@ -46,7 +46,7 @@ public abstract class Usuario
         return dias_de_atraso;
     }
 
-    public abstract Emprestimo emprestaLivro(Livro l, long data_atual);
+    public abstract Emprestimo emprestaLivro(Livro l, long data_atual) throws EmprestimoException;
 
     public String pegaNome() {return this.nome;}
     public String pegaUsername() {return this.username;}
