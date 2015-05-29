@@ -15,7 +15,7 @@ public abstract class Usuario
 
     private void penaliza(long dias, long data_atual)
     {
-        if(dias < 1)
+       if(dias < 1)
             return;
         else if(penalizado_ate >= data_atual)
             penalizado_ate += dias * 86400000;
@@ -37,7 +37,7 @@ public abstract class Usuario
         long dias_de_atraso = (e.pegaDataDevolucao()/86400000) -
                               (data_atual/86400000);
 
-        //Se der um numero positivos de dias, será penalizado.
+        // Se der um numero positivos de dias, será penalizado.
         penaliza(dias_de_atraso, data_atual);
 
         // Registra a devolução

@@ -16,7 +16,7 @@ public class Comunidade extends Usuario
         // livro texto, ou por causa do limite de emprestimos
         if(estaPenalizado(data_atual) || l.pegaGenero().equals("TEXTO")
                                              || livros_emprestados >= 2)
-            return null;
+            throw new EmprestimoException("Impedido de pegar livro");
 
         livros_emprestados++;
         return new Emprestimo(pegaUsername(), 0,

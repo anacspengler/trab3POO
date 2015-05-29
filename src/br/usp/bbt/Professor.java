@@ -19,7 +19,7 @@ public class Professor extends Usuario
                        data_atual, data_atual + 60 * 86400000);
         }
         
-        return null;
+        throw new EmprestimoException("Impedido de pegar livro");
     }
 
     public int pegaNumEmprestados() {return this.livros_emprestados;}
