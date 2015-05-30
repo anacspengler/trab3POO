@@ -6,13 +6,8 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
-    <property name="main-class"  value="br.usp.bbt.InterfaceGrafica"/>
+    <property name="main-class"  value="br.usp.bbt.Biblioteca"/>
     <property name="author.name" value="Paulo Bardes et al."/>
-
-    <path id="classpath">
-        <pathelement location="${lib.dir}/"/>
-        <fileset dir="${lib.dir}" includes="**.jar"/>
-    </path>
 
     <target name="clean">
         <delete dir="${build.dir}"/>
@@ -20,7 +15,7 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${classes.dir}" classpath=".:lib"/>
     </target>
 
     <target name="jar" depends="compile">
@@ -30,8 +25,9 @@
                 <attribute name="Main-Class" value="${main-class}"/>
                 <attribute name="Author" value="${author.name}"/>
             </manifest>
+
             <!--<fileset dir="." includes="${res.dir}/**"/>-->
-            <fileset dir="." includes="${lib.dir}/**"/>
+            <fileset dir="${lib.dir}" includes="**/*.class"/>
             <fileset dir="${classes.dir}"/>
             <fileset dir="${src.dir}" includes="**/*.java"/>
         </jar>
