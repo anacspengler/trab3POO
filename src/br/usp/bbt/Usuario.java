@@ -1,16 +1,46 @@
 package br.usp.bbt;
 
-public abstract class Usuario
+import java.util.Stack;
+
+public class Usuario implements Registro, Comparable<Usuario>
 {
     private String username;
     private String nome;
     private long penalizado_ate;
+    protected long livros_emprestados;
+    String tipo;
 
-    protected Usuario(String username, String nome, long pena)
+    protected Usuario()
+    {
+        this.username = null;
+        this.nome = null;
+        this.penalizado_ate = -2;
+        this.livros_emprestados = -2;
+    }
+
+    protected Usuario(String username, String nome,
+                      long pena, long livros, String tipo)
     {
         this.username = username;
         this.nome = nome;
         this.penalizado_ate = pena;
+        this.livros_emprestados = livros;
+        this.tipo = tipo;
+    }
+
+    public boolean equals(Usuario u)
+    {
+        return username.equals(u.pegaUsername());
+    }
+
+    public int compareTo(Usuario u)
+    {
+        return username.compareTo(u.pegaUsername());
+    }
+
+    public int hashCode()
+    {
+        return username.hashCode();
     }
 
     private void penaliza(long dias, long data_atual)
@@ -46,10 +76,34 @@ public abstract class Usuario
         return dias_de_atraso;
     }
 
-    public abstract Emprestimo emprestaLivro(Livro l, long data_atual) throws EmprestimoException;
+    public Emprestimo emprestaLivro(Livro l, long data_atual)
+    {
+        //TODO
+        return null;
+    }
+
+    public Stack<String> pegaDados()
+    {
+        Stack<String> dados = new Stack<String>();
+        dados.push(this.tipo);
+        dados.push(this.username);
+        dados.push(this.nome);
+        dados.push(Long.toString(this.penalizado_ate));
+        dados.push(Long.toString(this.livros_emprestados));
+        return dados;
+    }
+
+    public void carregaDados(Stack<String> dados)
+    {
+        this.livros_emprestados = Long.parseLong(dados.pop());
+        this.penalizado_ate = Long.parseLong(dados.pop());
+        this.nome = dados.pop();
+        this.username = dados.pop();
+        this.tipo = dados.pop();
+    }
 
     public String pegaNome() {return this.nome;}
     public String pegaUsername() {return this.username;}
     public long pegaPena() {return this.penalizado_ate;}
-    public abstract int pegaNumEmprestados();
+    public long pegaQtdLivros() {return this.livros_emprestados;}
 }
