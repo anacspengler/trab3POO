@@ -6,11 +6,12 @@ import java.util.*;
 
 public class Biblioteca
 {
-    Set<Usuario> usuarios;
-    Set<Livro> livros;
-    Set<Emprestimo> emprestimos;
-    long dataAtual;
-    String dir_dados;
+    private Set<Usuario> usuarios;
+    private Set<Livro> livros;
+    private Set<Emprestimo> emprestimos;
+    private long dataAtual;
+    private String dir_dados;
+    private int prox_id;
 
     /**
      * Cria uma biblioteca usando a data atual como referência.
@@ -39,6 +40,7 @@ public class Biblioteca
         try {carregaDados();}
         catch (FileNotFoundException e) {}
         catch (Exception e) {e.printStackTrace();}
+
     }
 
     /**
@@ -89,6 +91,12 @@ public class Biblioteca
             novo.carregaDados(empilhaCSVRecord(r));
             livros.add(novo);
         }
+
+        // Gera prox_id olhando qual o maior id ate agora
+        prox_id = livros.stream()
+            .mapToInt(Livro::pegaId)
+            .max()
+            .orElse(0) + 1;
     }
 
     /**
@@ -106,26 +114,21 @@ public class Biblioteca
     /**
      * Adiciona um novo usuário na biblioteca.
      *
-     * Se um usuário com o mesmo username já estiver cadastrado os dados
-     * são atualizados.
+     * Se um usuário com o mesmo username já estiver cadastrado nada acontece.
      */
     public void cadastraUsuario(String tipo, String username, String nome)
     {
-        //TODO Avisar duplicatas, checar o tipo
         usuarios.add(new Usuario(username, nome, -1, 0, tipo));
     }
 
     /**
      * Adiciona uma (ou mais) cópias do livro no acrevo.
      */
-    public void cadastraLivro(String titulo,String autor, String genero, int copias)
+    public void cadastraLivro(String titulo, String autor,
+                              String genero, int copias)
     {
-        // TODO Gerar IDs unicos para os livros
-        // TODO Adicionar varias cópias
-        if(copias < 1) return;
-
-        int id = (int) System.currentTimeMillis()/1000;
-        livros.add(new Livro(id, titulo, autor, genero));
+        for(int i = 0; i < copias; ++i)
+            livros.add(new Livro(prox_id++, titulo, genero));
     }
 
     public void registraEmprestimo(String username, int id)
@@ -149,15 +152,19 @@ public class Biblioteca
     public void defineData(long data) {this.dataAtual = data;}
 
 
+    /**
+     * Escreve uma sequencia de registros no arquivo dado.
+     */
     private void escreveRegistros(File arquivo, Set<? extends Registro> regs)
     throws FileNotFoundException, IOException
     {
+        // Abre o arquivo e cria um "printer" para manipular a saída
         CSVPrinter saida = new CSVPrinter(new FileWriter(arquivo),
                                           CSVFormat.RFC4180);
+        // Escreve cada registro no arquivo
         for(Registro r : regs)
             saida.printRecord(r.pegaDados());
 
-        System.out.println(arquivo);
         saida.close();
     }
 
