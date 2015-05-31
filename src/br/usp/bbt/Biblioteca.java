@@ -16,18 +16,18 @@ public class Biblioteca
     /**
      * Cria uma biblioteca usando a data atual como referência.
      *
-     * \param dir Diretório usado para carregar e salvar os dados.
+     * @param dir Diretório usado para carregar e salvar os dados.
      */
     public Biblioteca(String dir)
     {
-        this(dir, System.currentTimeMillis());
+        this(dir, System.currentTimeMillis()/(60*60*24*1000));
     }
 
     /**
      * Cria uma biblioteca usando a data especificada.
      *
-     * \param dir Diretório usado para carregar e salvar os dados.
-     * \param data Data da biblioteca simulada.
+     * @param dir Diretório usado para carregar e salvar os dados.
+     * @param data Data da biblioteca simulada.
      */
     public Biblioteca(String dir, long data)
     {
@@ -106,8 +106,8 @@ public class Biblioteca
      */
     public void salvaDados() throws FileNotFoundException, IOException
     {
-        escreveRegistros(new File(dir_dados, "/usuarios.csv"), usuarios);
-        escreveRegistros(new File(dir_dados, "/livros.csv"), livros);
+        escreveRegistros(new File(dir_dados, "usuarios.csv"), usuarios);
+        escreveRegistros(new File(dir_dados, "livros.csv"), livros);
         escreveRegistros(new File(dir_dados, "emprestimos.csv"), emprestimos);
     }
 
@@ -142,7 +142,7 @@ public class Biblioteca
      * Se por algum motivo não for possível fazer o empréstimo, uma excessão
      * é lançada descrevendo o motivo.
      */
-    public registraEmprestimo(String username, int id)
+    public void registraEmprestimo(String username, int id)
     {
         //TODO 
     }
