@@ -6,19 +6,22 @@ class Livro implements Registro, Comparable<Livro>
 {
     private String titulo;
     private String genero;
+    private String autor;
     private int id;
 
     Livro()
     {
         this.titulo = null;
         this.genero = null;
+        this.autor = null;
         this.id = -2;
     }
 
-    public Livro(int id, String titulo, String genero)
+    public Livro(int id, String titulo, String autor, String genero)
     {
         this.titulo = titulo;
         this.genero = genero;
+        this.autor = autor;
         this.id = id;
     }
 
@@ -38,6 +41,7 @@ class Livro implements Registro, Comparable<Livro>
         dados.push(Long.toString(id));
         dados.push(titulo);
         dados.push(genero);
+        dados.push(autor);
         return dados;
     }
 
@@ -45,10 +49,12 @@ class Livro implements Registro, Comparable<Livro>
     {
         genero = dados.pop();
         titulo = dados.pop();
+        autor = dados.pop();
         id = Integer.parseInt(dados.pop());
     }
 
     public String pegaTitulo() {return titulo;}
     public String pegaGenero() {return genero;}
+    public String pegaAutor() {return autor;}
     public int pegaId() {return id;}
 }

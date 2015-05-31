@@ -15,10 +15,10 @@ class Emprestimo implements Registro, Comparable<Emprestimo>
     Emprestimo()
     {
         this.username = null;
-        this.id = -2;
-        this.data_emp = -2;
-        this.data_dev = -2;
-        this.data_rec = -2;
+        this.id = -1;
+        this.data_emp = -1;
+        this.data_dev = -1;
+        this.data_rec = -1;
     }
 
     Emprestimo(String username, int id, long data_emp, long data_dev)
