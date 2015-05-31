@@ -118,14 +118,14 @@ public class Biblioteca
     /**
      * Adiciona uma (ou mais) cópias do livro no acrevo.
      */
-    public void cadastraLivro(String titulo, String genero, int copias)
+    public void cadastraLivro(String titulo,String autor, String genero, int copias)
     {
         // TODO Gerar IDs unicos para os livros
         // TODO Adicionar varias cópias
         if(copias < 1) return;
 
         int id = (int) System.currentTimeMillis()/1000;
-        livros.add(new Livro(id, titulo, genero));
+        livros.add(new Livro(id, titulo, autor, genero));
     }
 
     public void registraEmprestimo(String username, int id)
@@ -191,7 +191,7 @@ public class Biblioteca
     public static void main(String args[]) throws Exception
     {
         Biblioteca b = new Biblioteca(args[0]);
-        b.cadastraLivro("Guia do mochileiro...", "SciFi", 1);
+        b.cadastraLivro("Guia do mochileiro...", "alguem q eu desconheco", "SciFi", 1);
         b.cadastraUsuario("ALUNO", "bardes", "Paulo Bardes");
         b.salvaDados();
     }
