@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="267.0" layoutY="41.0" text="Usuários">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TableView layoutX="32.0" layoutY="126.0" prefHeight="250.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="134.0" text="Nome de Usuário" />
+          <TableColumn prefWidth="309.0" text="Nome" />
+            <TableColumn minWidth="0.0" prefWidth="156.0" text="Tipo de Usuário" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
