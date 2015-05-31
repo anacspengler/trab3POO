@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java1.EmprestarLivroController">
+   <children>
+      <Label layoutX="250.0" layoutY="36.0" text="Data de Retorno" />
+      <Label layoutX="33.0" layoutY="95.0" text="Nome de Usuário" AnchorPane.leftAnchor="30.0" />
+      <Label layoutX="32.0" layoutY="34.0" text="ID do Livro" AnchorPane.leftAnchor="30.0" />
+      <Button layoutX="332.0" layoutY="116.0" mnemonicParsing="false" onAction="#emprestar" text="Emprestar" />
+      <TextField fx:id="nomeDeUsuario" layoutX="32.0" layoutY="116.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" />
+      <TextField fx:id="id" layoutX="32.0" layoutY="61.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" />
+      <DatePicker fx:id="dataRetorno" layoutX="250.0" layoutY="61.0" prefWidth="250.0" AnchorPane.rightAnchor="30.0" />
+   </children>
+</AnchorPane>

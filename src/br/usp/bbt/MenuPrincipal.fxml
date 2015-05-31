@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java1.MenuPrincipalController">
+   <children>
+      <Label layoutX="127.0" layoutY="36.0" prefHeight="68.0" prefWidth="220.0" text="BIBLIOTECA" textAlignment="CENTER" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" layoutX="62.0" layoutY="136.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefWidth="90.0" text="Cadastrar Usuário" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="50.0" />
+      <Button layoutX="62.0" layoutY="193.0" mnemonicParsing="false" onAction="#cadastrarLivro" prefWidth="90.0" text="Cadastrar LIvro" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="50.0" />
+      <Button layoutX="205.0" layoutY="136.0" mnemonicParsing="false" onAction="#listarUsuarios" prefWidth="90.0" text="Listar Usuários" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="205.0" layoutY="193.0" mnemonicParsing="false" onAction="#listarLivros" prefWidth="90.0" text="Listar Livros" textAlignment="CENTER" wrapText="true" />
+      <Button alignment="CENTER" layoutX="353.0" layoutY="136.0" mnemonicParsing="false" onAction="#emprestimos" prefHeight="40.0" prefWidth="97.0" text="Empréstimo" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="50.0" />
+      <Button alignment="CENTER" layoutX="353.0" layoutY="193.0" mnemonicParsing="false" onAction="#devolucoes" prefHeight="40.0" prefWidth="97.0" text="Devolução" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.rightAnchor="50.0" />
+   </children>
+</AnchorPane>

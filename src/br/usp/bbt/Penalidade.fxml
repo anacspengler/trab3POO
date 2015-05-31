@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java1.PenalidadeController">
+   <children>
+      <TextField fx:id="diasDePenalidade" editable="false" layoutX="57.0" layoutY="53.0" />
+      <TextField fx:id="penalizadoAte" editable="false" layoutX="57.0" layoutY="124.0" />
+      <Label layoutX="57.0" layoutY="32.0" text="Penalidade" />
+      <Label layoutX="57.0" layoutY="97.0" text="Penalizado até" />
+   </children>
+</AnchorPane>
