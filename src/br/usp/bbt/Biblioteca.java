@@ -131,16 +131,48 @@ public class Biblioteca
             livros.add(new Livro(prox_id++, titulo, genero));
     }
 
-    public void registraEmprestimo(String username, int id)
+    /**
+     * Tenta registrar um emprestimo em nome do usuário dado.
+     *
+     * O trabalho de verificar se o empréstimo é válido é dividido entre
+     * a biblioteca e o usuário: enquanto a biblioteca verifica a 
+     * disponibilidade do livro, o usuário se responsabiliza por verificar
+     * limites de emprestimos, tipos de livros e penalidades.
+     *
+     * Se por algum motivo não for possível fazer o empréstimo, uma excessão
+     * é lançada descrevendo o motivo.
+     */
+    public registraEmprestimo(String username, int id)
     {
         //TODO 
     }
 
-    public void registraDevolucao()
+    /**
+     * Registra a devolução de um livro na data atual.
+     *
+     * Tenta fazer a devolução de um livro. Se o livro não existir ou
+     * não estiver emprestado nada acontece.
+     *
+     * **Nota:** Em caso de atraso o proprio usuário calcula e aplica a
+     * penalidade após a devolução.
+     *
+     * @param id ID do livro sendo devolvido
+     */
+    public void registraDevolucao(int id)
     {
+
     }
 
-    public boolean estaDisponivel(Livro l)
+    /**
+     * Verifica se um livro está disponível para ser emprestado.
+     *
+     * **Aviso:** Além de não estar emprestado no momento, para que um livro
+     * esteja disponível também não pode haver nenhum registro de empréstimo
+     * do mesmo livro numa data futura. **Ou seja**, para que o livro esteja
+     * disponível todas as datas de devolução deve ser anteriores à data
+     * atual e não pode haver um empréstimo em aberto.
+     */
+    public boolean estaDisponivel(int id)
     {
         return false;
     }
