@@ -157,19 +157,20 @@ public class Biblioteca
     public void registraEmprestimo(String username, int id) 
         throws EmprestimoException
     {
+        // Busca os argumentos
+        Usuario u = usuarios.get(username);
+        if(u == null)
+            throw new EmprestimoException("Usuário inexistente!");
+        Livro l = livros.get(id);
+        if(l == null)
+            throw new EmprestimoException("Livro inexistente!");
+
         // Verifica se o livro esta disponivel
         if(!estaDisponivel(id))
-            throw new RuntimeException("Livro indisponivel");
+            throw new EmprestimoException("Livro indisponível.");
 
         // Verifica se o usuario pode pegar o livro
-        Usuario u = usuarios.get(username);
-        Livro l = livros.get(id);
-
-        if(u == null || l == null)
-            throw new RuntimeException("Dados inconsistentes detectados");
-
-        Emprestimo e = u.emprestaLivro(l, data_atual);
-    
+        emprestimos.add(u.emprestaLivro(l, data_atual));
     }
 
     /**
@@ -221,10 +222,28 @@ public class Biblioteca
      * do mesmo livro numa data futura. **Ou seja**, para que o livro esteja
      * disponível todas as datas de devolução deve ser anteriores à data
      * atual e não pode haver um empréstimo em aberto.
+     *
+     * @return true Se o livro existir e estiver disponível.
      */
     public boolean estaDisponivel(int id)
     {
-        return false;
+        // Procura o livro
+        Livro l = livros.get(id);
+        if(l == null)
+            return false;
+
+        // Checa se o livro ainda não foi devolvido por alguém 
+        boolean futuro = emprestimos.stream()
+            .filter(e -> !e.devolvido())
+            .findAny()
+            .isPresent();
+        if(futuro) return false;
+
+        // Checa se o livro não será retirado por um usuário no futuro
+        return emprestimos.stream()
+            .filter(e -> e.pegaDataDevolucao() > pegaData())
+            .findAny()
+            .isPresent();
     }
 
     /**
