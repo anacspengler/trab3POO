@@ -233,17 +233,12 @@ public class Biblioteca
             return false;
 
         // Checa se o livro ainda não foi devolvido por alguém 
-        boolean futuro = emprestimos.stream()
-            .filter(e -> !e.devolvido())
-            .findAny()
-            .isPresent();
-        if(futuro) return false;
+        if(emprestimos.stream().anyMatch(e -> !e.devolvido()))
+            return false;
 
         // Checa se o livro não será retirado por um usuário no futuro
         return emprestimos.stream()
-            .filter(e -> e.pegaDataDevolucao() > pegaData())
-            .findAny()
-            .isPresent();
+            .allMatch(e -> e.pegaDataDevolucao() <= pegaData());
     }
 
     /**
@@ -309,7 +304,7 @@ public class Biblioteca
 
     public static void main(String args[]) throws Exception
     {
-        Biblioteca b = new Biblioteca(args[0]);
+        Biblioteca b = new Biblioteca(args[0], 1234);
         
         b.cadastraLivro("Guia do mochileiro", "Asimov, Isaac", "SciFi", 3);
         b.cadastraLivro("Design Patterns: " + 
@@ -319,6 +314,11 @@ public class Biblioteca
 
         b.cadastraUsuario("ALUNO", "bardes", "Paulo Bardes");
         b.cadastraUsuario("PROFESSOR", "adenilso", "Adenilso Simão");
+
+        b.registraEmprestimo("bardes", 2);
+        b.defineData(1242);
+        b.registraDevolucao(2);
+
 
         b.salvaDados();
     }
