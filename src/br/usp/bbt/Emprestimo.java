@@ -57,6 +57,6 @@ class Emprestimo implements Registro, Comparable<Emprestimo>
     public long pegaDataEmprestado() {return data_emp;}
     public long pegaDataDevolucao() {return data_dev;}
     public long pegaDataRecebido() {return data_rec;}
-    public String pegaUsuario() {return username;}
+    public String pegaUsername() {return username;}
     public int pegaIdLivro() {return id;}
 }

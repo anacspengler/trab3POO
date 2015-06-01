@@ -86,10 +86,12 @@ public class Usuario implements Registro, Comparable<Usuario>
      *
      * O número de dias de atraso é retornado à carater informativo, já
      * que o próprio usuário já aplica a pena.
+     *
+     * @return Valores negativos indicam dias de adiantamento, positivos
+     * indicam dias e atraso, e 0 significa que devolveu no limite do prazo.
      */
     public long devolveLivro(Emprestimo e, long data_atual)
     {
-        //TODO Usar uma Exception normal
         if(e.devolvido())
             throw new RuntimeException("Dupla devolução!");
 

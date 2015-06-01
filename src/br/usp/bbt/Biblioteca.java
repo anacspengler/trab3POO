@@ -3,6 +3,7 @@ package br.usp.bbt;
 import org.apache.commons.csv.*;
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Biblioteca
 {
@@ -167,11 +168,36 @@ public class Biblioteca
      * **Nota:** Em caso de atraso o proprio usuário calcula e aplica a
      * penalidade após a devolução.
      *
-     * @param id ID do livro sendo devolvido
+     * @param id ID do livro sendo devolvido.
+     *
+     * @return true se achou e devolveu com sucesso.
      */
-    public void registraDevolucao(int id)
+    public boolean registraDevolucao(int id)
     {
+        // Procura um emprestimo em aberto com o id especificado
+        List<Emprestimo> achado = emprestimos.stream()
+            .filter(e -> e.pegaIdLivro() == id)
+            .limit(2)
+            .collect(Collectors.toList());
 
+        // Testa possíveis inconsistências nos dados caso o mesmo livro
+        // esteja emprestado por mais de uma pessoa ao mesmo temp
+        if(achado.size() > 1)
+            throw new RuntimeException("Dados inconsistentes detectados!");
+
+        // Se o livro não existe ou ja foi devolvido
+        if(achado.isEmpty())
+            return false; // Não faz nada
+
+        // Procura o usuário responsável pela devoulção
+        Usuario u = usuarios.get(achado.get(0).pegaUsername());
+        if(u == null)
+            throw new RuntimeException("Dados inconsistentes detectados!");
+
+        // Registra a devolução
+        u.devolveLivro(achado.get(0), pegaData());
+
+        return true;
     }
 
     /**
@@ -188,9 +214,21 @@ public class Biblioteca
         return false;
     }
 
-    public void defineData(long data)
+    /**
+     * Define a data usada pela biblioteca.
+     *
+     * Se a data for menor que zero, o relogio do sistema é usado.
+     * Caso contrário a data é congelada no dia especificado.
+     */
+    public void defineData(long data) {this.data_atual = data;}
+
+    /**
+     * Retorna a data atual da biblioteca.
+     */
+    public long pegaData()
     {
-        this.data_atual = data;
+        return data_atual < 0 ? System.currentTimeMillis()/86400000 :
+                                data_atual;
     }
 
     /**
@@ -240,8 +278,16 @@ public class Biblioteca
     public static void main(String args[]) throws Exception
     {
         Biblioteca b = new Biblioteca(args[0]);
-        b.cadastraLivro("Guia do mochileiro...", "alguem q eu desconheco", "SciFi", 1);
+        
+        b.cadastraLivro("Guia do mochileiro", "Asimov, Isaac", "SciFi", 3);
+        b.cadastraLivro("Design Patterns: " + 
+                        "Elements of Reusable Object-Oriented Software",
+                        "GoF", "TEXTO", 1);
+        b.cadastraLivro("Moby-Dick", "Melville, Herman ", "TEXTO", 1);
+
         b.cadastraUsuario("ALUNO", "bardes", "Paulo Bardes");
+        b.cadastraUsuario("PROFESSOR", "adenilso", "Adenilso Simão");
+
         b.salvaDados();
     }
 }
