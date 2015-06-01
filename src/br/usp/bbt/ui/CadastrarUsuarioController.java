@@ -47,11 +47,13 @@ public class CadastrarUsuarioController implements Initializable {
 
     @FXML
     private void escolheTipoUsuario(ActionEvent event) {
-        System.out.println(tipoUsuario.getValue());
+        
     }
 
     @FXML
-    private void salvar(ActionEvent event) throws IOException {
+    private void salvar(ActionEvent event) throws IOException {       
+        
+        bib.cadastraUsuario();
         System.out.println(nome.getCharacters());
         System.out.println(nomeDeUsuario.getCharacters());
         System.out.println(tipoUsuario.getValue());       

@@ -18,8 +18,8 @@
           <ComboBox id="comboInterval" fx:id="tipoLivro" editable="false" onAction="#escolheTipoLivro" prefHeight="22.0" prefWidth="131.0">
             <items>
               <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Geral" />
-                <String fx:value="Texto" />
+                <String fx:value="GERAL" />
+                <String fx:value="TEXTO" />
               </FXCollections>
             </items>
           </ComboBox>

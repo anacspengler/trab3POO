@@ -16,9 +16,9 @@
           <ComboBox id="comboInterval" fx:id="tipoUsuario" editable="false" onAction="#escolheTipoUsuario" prefHeight="22.0" prefWidth="131.0">
             <items>
               <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Aluno" />
-                <String fx:value="Comunidade" />
-                <String fx:value="Professor" />
+                <String fx:value="ALUNO" />
+                <String fx:value="COMUNIDADE" />
+                <String fx:value="PROFESSOR" />
               </FXCollections>
             </items>
           </ComboBox>
