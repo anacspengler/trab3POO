@@ -108,11 +108,11 @@ public class Biblioteca
      */
     public void salvaDados() throws FileNotFoundException, IOException
     {
-        escreveRegistros(new File(dir_dados, "usuarios.csv"),
+        Registro.escreveRegistros(new File(dir_dados, "usuarios.csv"),
                 usuarios.values());
-        escreveRegistros(new File(dir_dados, "livros.csv"),
+        Registro.escreveRegistros(new File(dir_dados, "livros.csv"),
                 livros.values());
-        escreveRegistros(new File(dir_dados, "emprestimos.csv"),
+        Registro.escreveRegistros(new File(dir_dados, "emprestimos.csv"),
                 emprestimos);
     }
 
@@ -262,42 +262,6 @@ public class Biblioteca
                                 data_atual;
     }
 
-    /**
-     * Escreve uma sequencia de registros no arquivo dado.
-     */
-    private void
-    escreveRegistros(File arquivo, Iterable<? extends Registro> regs)
-    throws FileNotFoundException, IOException
-    {
-        // Abre o arquivo e cria um "printer" para manipular a saída
-        CSVPrinter saida = new CSVPrinter(new FileWriter(arquivo),
-                                          CSVFormat.RFC4180);
-        // Escreve cada registro no arquivo
-        for(Registro r : regs)
-            saida.printRecord(r.pegaDados());
-
-        saida.close();
-    }
-
-/*
-    private void carregaRegistros(File arquivo, Set<Registro> regs,
-            Class<? extends Registro> tipo)
-    {
-        // Cria um parser para ler o arquivo .csv
-        CSVParser parser = CSVFormat.RFC4180.parse(new FileReader(arquivo));
-
-        // Esvazia os registros atuais
-        regs.clear();
-
-        // Percorre cada registro no arquivo
-        for(CSVRecord r : parser)
-        {
-            Registro novo = tipo.newInstance();
-            novo.carregaDados(empilhaCSVRecord(r));
-            regs.add(novo);
-        }
-    }
-*/
     private Stack<String> empilhaCSVRecord(CSVRecord r)
     {
         Stack<String> empilhado = new Stack<String>();
