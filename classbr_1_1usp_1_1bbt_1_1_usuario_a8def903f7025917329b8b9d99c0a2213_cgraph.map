@@ -1,0 +1,8 @@
+<map id="br.usp.bbt.Usuario.emprestaLivro" name="br.usp.bbt.Usuario.emprestaLivro">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a5e7d6e1552c43d52024b1afc54a923d7" title="br.usp.bbt.Usuario.equals" alt="" coords="286,5,471,32"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#abe1ddfece4d99e0bf387e8b34db3a57a" title="br.usp.bbt.Usuario.pegaUsername" alt="" coords="547,31,789,57"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a766337f7fec2945a39e18c1bc9133f39" title="Determina se o usuário está penalizado no momento. " alt="" coords="259,107,499,133"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#ab92a0acbe9ddcbd2b6dbe0cc2de35b58" title="br.usp.bbt.Usuario.pegaPena" alt="" coords="275,157,482,184"/>
+<area shape="rect" id="node6" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a221e3aaa951b2b9d26b07d0a1a423d23" title="br.usp.bbt.Usuario.pegaQtd\lLivros" alt="" coords="279,209,478,250"/>
+<area shape="rect" id="node7" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a389d0d365e839f9d8250dd6f3582c223" title="br.usp.bbt.Usuario.pegaTipo" alt="" coords="278,275,479,301"/>
+</map>

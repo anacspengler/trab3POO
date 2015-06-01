@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_livro.html" title="br.usp.bbt.Livro" alt="" coords="219,56,339,83"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html" title="Representa um usuário da biblioteca. " alt="" coords="209,5,348,32"/>
+<area shape="rect" id="node4" href="$interfacebr_1_1usp_1_1bbt_1_1_registro.html" title="Representa um registro que pode ser lido/escrito num arquivo. " alt="" coords="5,56,147,83"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html" title="Classe representando um emprestimo. " alt="" coords="195,107,363,133"/>
+</map>

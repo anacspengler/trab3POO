@@ -1,0 +1,6 @@
+<map id="br.usp.bbt.Biblioteca.pegaData" name="br.usp.bbt.Biblioteca.pegaData">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a212f28a63442584c85a1993c54d07c48" title="Verifica se um livro está disponível para ser emprestado. " alt="" coords="272,5,456,47"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aa11ed125291ccbfd361451be08436b8b" title="Tenta registrar um emprestimo em nome do usuário dado. " alt="" coords="504,56,709,97"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aeb8a01d8790389adbe8543f88a9f4c3a" title="br.usp.bbt.Biblioteca.main" alt="" coords="757,122,945,149"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#ab50259f3d1c42a3c461862454188f4f0" title="Registra a devolução de um livro na data atual. " alt="" coords="504,173,709,215"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="br.usp.bbt.Biblioteca.registraDevolucao" name="br.usp.bbt.Biblioteca.registraDevolucao">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a85cfdcb34677818fa880f44b7e7de870" title="Realiza devolução de um emprestimo. " alt="" coords="272,86,464,127"/>
+<area shape="rect" id="node8" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a2b7b3f289c33ce6fbf90c7c9d973d521" title="Retorna a data atual da biblioteca. " alt="" coords="259,152,477,179"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a3a9e6efc9c38fee9cb31b55cb42df8b5" title="br.usp.bbt.Emprestimo.devolvido" alt="" coords="525,5,757,32"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a07f2a09f8a883ced595cad7fe70b666e" title="br.usp.bbt.Emprestimo.pega\lDataDevolucao" alt="" coords="539,57,743,98"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#aef88c8e04144394e454848b409e7d78d" title="Aplica uma penalização nesse usuário. " alt="" coords="543,123,739,149"/>
+<area shape="rect" id="node7" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a329a3b18bdd3bcd83253d042dbe1e0dd" title="br.usp.bbt.Emprestimo.devolve" alt="" coords="531,173,752,200"/>
+<area shape="rect" id="node6" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a766337f7fec2945a39e18c1bc9133f39" title="Determina se o usuário está penalizado no momento. " alt="" coords="805,123,1045,149"/>
+</map>

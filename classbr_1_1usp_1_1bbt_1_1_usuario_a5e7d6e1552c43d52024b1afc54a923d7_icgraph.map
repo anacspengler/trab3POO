@@ -1,0 +1,5 @@
+<map id="br.usp.bbt.Usuario.equals" name="br.usp.bbt.Usuario.equals">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a8def903f7025917329b8b9d99c0a2213" title="Cria um #Emprestimo do #Livro l em nome do Usuario. " alt="" coords="239,5,444,47"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aa11ed125291ccbfd361451be08436b8b" title="Tenta registrar um emprestimo em nome do usuário dado. " alt="" coords="492,5,697,47"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aeb8a01d8790389adbe8543f88a9f4c3a" title="br.usp.bbt.Biblioteca.main" alt="" coords="745,13,933,39"/>
+</map>

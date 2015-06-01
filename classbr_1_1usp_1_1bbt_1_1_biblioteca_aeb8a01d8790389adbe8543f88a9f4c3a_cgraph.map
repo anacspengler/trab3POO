@@ -1,0 +1,24 @@
+<map id="br.usp.bbt.Biblioteca.main" name="br.usp.bbt.Biblioteca.main">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#abe69973626820c32fc67ba4f599cc199" title="Cria uma biblioteca usando a data atual como referência. " alt="" coords="245,45,464,72"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a5a3cfdead4266eb4e7b7358140195910" title="Adiciona uma (ou mais) cópias do livro no acrevo. " alt="" coords="249,97,461,138"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a41130e28238086ba9cf7990eec7e4343" title="Adiciona um novo usuário na biblioteca. " alt="" coords="516,470,728,511"/>
+<area shape="rect" id="node7" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#ac9d66c6773a48851b5f88a720482fdaf" title="Define a data usada pela biblioteca. " alt="" coords="241,396,468,423"/>
+<area shape="rect" id="node8" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a2b7b3f289c33ce6fbf90c7c9d973d521" title="Retorna a data atual da biblioteca. " alt="" coords="783,224,1001,251"/>
+<area shape="rect" id="node9" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#ab50259f3d1c42a3c461862454188f4f0" title="Registra a devolução de um livro na data atual. " alt="" coords="252,162,457,203"/>
+<area shape="rect" id="node16" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aa11ed125291ccbfd361451be08436b8b" title="Tenta registrar um emprestimo em nome do usuário dado. " alt="" coords="252,279,457,321"/>
+<area shape="rect" id="node22" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a5a5a6ec1e54d7c2f0ac09ed3a5ca001f" title="Salva os dados atuais nos arquivos csv. " alt="" coords="260,493,449,534"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#ab92a0acbe9ddcbd2b6dbe0cc2de35b58" title="br.usp.bbt.Usuario.pegaPena" alt="" coords="789,544,995,571"/>
+<area shape="rect" id="node6" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a221e3aaa951b2b9d26b07d0a1a423d23" title="br.usp.bbt.Usuario.pegaQtd\lLivros" alt="" coords="793,478,991,519"/>
+<area shape="rect" id="node10" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a85cfdcb34677818fa880f44b7e7de870" title="Realiza devolução de um emprestimo. " alt="" coords="526,111,718,153"/>
+<area shape="rect" id="node11" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a3a9e6efc9c38fee9cb31b55cb42df8b5" title="br.usp.bbt.Emprestimo.devolvido" alt="" coords="776,5,1008,32"/>
+<area shape="rect" id="node12" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a07f2a09f8a883ced595cad7fe70b666e" title="br.usp.bbt.Emprestimo.pega\lDataDevolucao" alt="" coords="790,57,994,98"/>
+<area shape="rect" id="node13" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#aef88c8e04144394e454848b409e7d78d" title="Aplica uma penalização nesse usuário. " alt="" coords="794,123,990,149"/>
+<area shape="rect" id="node15" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a329a3b18bdd3bcd83253d042dbe1e0dd" title="br.usp.bbt.Emprestimo.devolve" alt="" coords="781,173,1003,200"/>
+<area shape="rect" id="node14" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a766337f7fec2945a39e18c1bc9133f39" title="Determina se o usuário está penalizado no momento. " alt="" coords="1057,313,1297,340"/>
+<area shape="rect" id="node17" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a212f28a63442584c85a1993c54d07c48" title="Verifica se um livro está disponível para ser emprestado. " alt="" coords="530,279,714,321"/>
+<area shape="rect" id="node18" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a8def903f7025917329b8b9d99c0a2213" title="Cria um #Emprestimo do #Livro l em nome do Usuario. " alt="" coords="519,397,725,438"/>
+<area shape="rect" id="node19" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a389d0d365e839f9d8250dd6f3582c223" title="br.usp.bbt.Usuario.pegaTipo" alt="" coords="791,275,993,301"/>
+<area shape="rect" id="node20" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a5e7d6e1552c43d52024b1afc54a923d7" title="br.usp.bbt.Usuario.equals" alt="" coords="799,376,985,403"/>
+<area shape="rect" id="node21" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#abe1ddfece4d99e0bf387e8b34db3a57a" title="br.usp.bbt.Usuario.pegaUsername" alt="" coords="1056,389,1299,416"/>
+<area shape="rect" id="node23" href="$interfacebr_1_1usp_1_1bbt_1_1_registro.html#a837b8ee7eb9dd8909ffbfa578d456157" title="Escreve uma sequencia de registros num arquivo. " alt="" coords="525,535,719,577"/>
+</map>

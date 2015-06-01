@@ -1,0 +1,8 @@
+<map id="br.usp.bbt.Biblioteca.carregaDados" name="br.usp.bbt.Biblioteca.carregaDados">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_livro.html#a1e3da9cbeab606bc4247f27474c770ec" title="Carrega os dados de um registro. " alt="" coords="293,5,467,47"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html#a9e2172b5dc762d18dd352d1c55be30c6" title="Carrega os dados de um registro. " alt="" coords="269,71,491,112"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#ac19694b9743da8c3f8ffd7d538994bfb" title="Carrega os dados do usuário à partir de uma pilha. " alt="" coords="284,136,476,177"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a60c58deac618632661a706fa1cf65a62" title="br.usp.bbt.Biblioteca.empilha\lCSVRecord" alt="" coords="277,201,483,243"/>
+<area shape="rect" id="node6" href="$classbr_1_1usp_1_1bbt_1_1_livro.html#a39a240be68790d2a0f83ee1cb95c5a03" title="br.usp.bbt.Livro.pegaId" alt="" coords="297,267,463,294"/>
+<area shape="rect" id="node7" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#abe1ddfece4d99e0bf387e8b34db3a57a" title="br.usp.bbt.Usuario.pegaUsername" alt="" coords="259,318,501,345"/>
+</map>

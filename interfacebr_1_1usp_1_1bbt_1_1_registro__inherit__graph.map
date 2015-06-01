@@ -1,0 +1,5 @@
+<map id="br.usp.bbt.Registro" name="br.usp.bbt.Registro">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_emprestimo.html" title="Classe representando um emprestimo. " alt="" coords="5,80,173,107"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_livro.html" title="br.usp.bbt.Livro" alt="" coords="197,80,317,107"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html" title="Representa um usuário da biblioteca. " alt="" coords="341,80,480,107"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="br.usp.bbt.Usuario.pegaUsername" name="br.usp.bbt.Usuario.pegaUsername">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#a24f74f05a255fcf79fe9af3121ae8117" title="Carrega os dados dos arquivos csv. " alt="" coords="300,5,505,47"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a0d4a46306fce300011e0bac73a303b90" title="br.usp.bbt.Usuario.compareTo" alt="" coords="296,71,509,98"/>
+<area shape="rect" id="node5" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a8def903f7025917329b8b9d99c0a2213" title="Cria um #Emprestimo do #Livro l em nome do Usuario. " alt="" coords="564,140,769,181"/>
+<area shape="rect" id="node8" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a5e7d6e1552c43d52024b1afc54a923d7" title="br.usp.bbt.Usuario.equals" alt="" coords="310,173,495,199"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#ad49e79ebb48cbcef5db0b6026b6d802c" title="Cria uma biblioteca usando a data especificada. " alt="" coords="557,13,776,39"/>
+<area shape="rect" id="node6" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aa11ed125291ccbfd361451be08436b8b" title="Tenta registrar um emprestimo em nome do usuário dado. " alt="" coords="824,140,1029,181"/>
+<area shape="rect" id="node7" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aeb8a01d8790389adbe8543f88a9f4c3a" title="br.usp.bbt.Biblioteca.main" alt="" coords="1077,147,1265,174"/>
+</map>

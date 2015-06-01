@@ -1,0 +1,5 @@
+<map id="br.usp.bbt.Emprestimo.devolvido" name="br.usp.bbt.Emprestimo.devolvido">
+<area shape="rect" id="node2" href="$classbr_1_1usp_1_1bbt_1_1_usuario.html#a85cfdcb34677818fa880f44b7e7de870" title="Realiza devolução de um emprestimo. " alt="" coords="285,5,477,47"/>
+<area shape="rect" id="node3" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#ab50259f3d1c42a3c461862454188f4f0" title="Registra a devolução de um livro na data atual. " alt="" coords="525,5,731,47"/>
+<area shape="rect" id="node4" href="$classbr_1_1usp_1_1bbt_1_1_biblioteca.html#aeb8a01d8790389adbe8543f88a9f4c3a" title="br.usp.bbt.Biblioteca.main" alt="" coords="779,13,967,39"/>
+</map>
