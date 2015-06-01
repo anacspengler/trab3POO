@@ -154,9 +154,22 @@ public class Biblioteca
      * Se por algum motivo não for possível fazer o empréstimo, uma excessão
      * é lançada descrevendo o motivo.
      */
-    public void registraEmprestimo(String username, int id)
+    public void registraEmprestimo(String username, int id) 
+        throws EmprestimoException
     {
-        //TODO 
+        // Verifica se o livro esta disponivel
+        if(!estaDisponivel(id))
+            throw new RuntimeException("Livro indisponivel");
+
+        // Verifica se o usuario pode pegar o livro
+        Usuario u = usuarios.get(username);
+        Livro l = livros.get(id);
+
+        if(u == null || l == null)
+            throw new RuntimeException("Dados inconsistentes detectados");
+
+        Emprestimo e = u.emprestaLivro(l, data_atual);
+    
     }
 
     /**
