@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -26,12 +27,14 @@ public class SelecionarDataController implements Initializable {
     @FXML
     private DatePicker dataAtual;
 
+    private final bib;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        bib = MenuPrincipalController.pegaBiblioteca();
     }    
 
     @FXML
@@ -42,7 +45,9 @@ public class SelecionarDataController implements Initializable {
         Scene scene = new Scene(root);
         menu.setScene(scene);
         menu.show();
-        System.out.println(dataAtual.getValue());
+
+        bib.defineData(dataAtual.getValue().toEpochDay());
+        //System.out.println(dataAtual.getValue());
     }
     
 }
