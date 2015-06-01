@@ -55,10 +55,7 @@ public class CadastrarUsuarioController implements Initializable {
         
         Scene scn = sair.getScene();
         Stage menu = (Stage) scn.getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
-        Scene scene = new Scene(root);
-        menu.setScene(scene);
-        menu.show();
+        menu.close();
 
     }
 
@@ -66,10 +63,7 @@ public class CadastrarUsuarioController implements Initializable {
     private void sair(ActionEvent event) throws IOException {
         Scene scn = sair.getScene();
         Stage menu = (Stage) scn.getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
-        Scene scene = new Scene(root);
-        menu.setScene(scene);
-        menu.show();
+        menu.close();
     }
     
 }

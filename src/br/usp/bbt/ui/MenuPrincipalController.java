@@ -56,7 +56,6 @@ public class MenuPrincipalController implements Initializable  {
     private void cadastrarUsuario(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.hide();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
@@ -73,7 +72,6 @@ public class MenuPrincipalController implements Initializable  {
     private void cadastrarLivro(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.hide();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
@@ -90,7 +88,6 @@ public class MenuPrincipalController implements Initializable  {
     private void listarUsuarios(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.hide();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
@@ -107,7 +104,6 @@ public class MenuPrincipalController implements Initializable  {
     private void listarLivros(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.hide();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
@@ -124,7 +120,6 @@ public class MenuPrincipalController implements Initializable  {
     private void emprestimos(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.hide();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
@@ -141,7 +136,6 @@ public class MenuPrincipalController implements Initializable  {
     private void devolucoes(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.hide();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
