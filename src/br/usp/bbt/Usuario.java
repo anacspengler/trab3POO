@@ -96,7 +96,7 @@ public class Usuario implements Registro, Comparable<Usuario>
             throw new RuntimeException("Dupla devolução!");
 
         // Calcula os dias de atraso fazendo um "delta"
-        long dias_de_atraso = e.pegaDataDevolucao() - data_atual;
+        long dias_de_atraso = data_atual - e.pegaDataDevolucao();
 
         // Se der um numero positivos de dias, será penalizado.
         penaliza(dias_de_atraso, data_atual);
@@ -104,6 +104,7 @@ public class Usuario implements Registro, Comparable<Usuario>
         // Registra a devolução
         e.devolve(data_atual);
 
+        --livros_emprestados;
         return dias_de_atraso;
     }
 
@@ -156,6 +157,7 @@ public class Usuario implements Registro, Comparable<Usuario>
             throw new RuntimeException("Tipo de usuário inválido!");
         }
 
+        ++livros_emprestados;
         return new Emprestimo(pegaUsername(), l.pegaId(), data_atual,
                               data_dev);
     }

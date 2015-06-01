@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Classe representando um emprestimo.
  */
-class Emprestimo implements Registro, Comparable<Emprestimo>
+class Emprestimo implements Registro
 {
     private int id;          // ID do livro emprestado
     private String username; // username do usuário que pegou o livro
@@ -30,11 +30,6 @@ class Emprestimo implements Registro, Comparable<Emprestimo>
         this.data_rec = -1;
     }
 
-    public int compareTo(Emprestimo e)
-    {
-        return Long.compare(data_emp, e.pegaDataEmprestado());
-    }
-
     // Registra a data em que o livro for de fato recebido de volta
     public void devolve(long data) {this.data_rec = data;}
 
@@ -44,13 +39,21 @@ class Emprestimo implements Registro, Comparable<Emprestimo>
     public Stack<String> pegaDados()
     {
         Stack<String> dados = new Stack<String>();
-        //TODO
+        dados.push(username);
+        dados.push(Integer.toString(id));
+        dados.push(Long.toString(data_emp));
+        dados.push(Long.toString(data_dev));
+        dados.push(Long.toString(data_rec));
         return dados;
     }
 
     public void carregaDados(Stack<String> dados)
     {
-        //TODO
+        data_rec = Long.parseLong(dados.pop());
+        data_dev = Long.parseLong(dados.pop());
+        data_emp = Long.parseLong(dados.pop());
+        id = Integer.parseInt(dados.pop());
+        username = dados.pop();
     }
 
     // Getters
