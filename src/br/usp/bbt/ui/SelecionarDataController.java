@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.StageStyle;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import br.usp.bbt.*;
@@ -38,6 +39,18 @@ public class SelecionarDataController implements Initializable {
     @FXML
     private void Enviar(ActionEvent event) throws IOException {
         bib.defineData(dataAtual.getValue().toEpochDay());
+              
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(false);
+        stage.setTitle("Cadastro de Usuarios");
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/MenuPrincipal.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+        
         dataAtual.getScene().getWindow().hide();
     }
     

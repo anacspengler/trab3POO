@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -25,6 +26,8 @@ import javafx.stage.Stage;
 public class ListarUsuariosController implements Initializable {
     @FXML
     private Button sair;
+    
+    private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
      * Initializes the controller class.

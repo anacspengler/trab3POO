@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -33,6 +34,8 @@ public class CadastrarUsuarioController implements Initializable {
     private TextField nomeDeUsuario;
     @FXML
     private Button sair;
+    
+    private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
      * Initializes the controller class.

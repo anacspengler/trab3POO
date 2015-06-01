@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -35,6 +36,8 @@ public class ReceberLivroController implements Initializable {
     private Button sair;
     @FXML
     private ListView<?> list;
+    
+    private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
     
     public static final ObservableList devolucao = FXCollections.observableArrayList();
 

@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -32,6 +33,8 @@ public class ListarLivroController implements Initializable {
     private TableColumn<?, ?> genero;
     @FXML
     private Button sair;
+    
+    private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
      * Initializes the controller class.
