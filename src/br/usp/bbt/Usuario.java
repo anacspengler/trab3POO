@@ -62,7 +62,7 @@ public class Usuario implements Registro, Comparable<Usuario>
     {
         if(dias < 1) // Não permite penas negativas ou nulas
             return;
-        else if(estaPenalizado())   // Se ja estiver penalizado
+        else if(estaPenalizado(data_atual)) // Se ja estiver penalizado
             penalizado_ate += dias; // Apenas acumula na pena atual
         else // Se não, uma pena é calculada à partir da data atual 
             penalizado_ate = data_atual + dias;
@@ -86,10 +86,12 @@ public class Usuario implements Registro, Comparable<Usuario>
      *
      * O número de dias de atraso é retornado à carater informativo, já
      * que o próprio usuário já aplica a pena.
+     *
+     * @return Valores negativos indicam dias de adiantamento, positivos
+     * indicam dias e atraso, e 0 significa que devolveu no limite do prazo.
      */
     public long devolveLivro(Emprestimo e, long data_atual)
     {
-        //TODO Usar uma Exception normal
         if(e.devolvido())
             throw new RuntimeException("Dupla devolução!");
 
@@ -105,11 +107,20 @@ public class Usuario implements Registro, Comparable<Usuario>
         return dias_de_atraso;
     }
 
+    /**
+     * Cria um #Emprestimo do #Livro l em nome do #Usuario.
+     *
+     * Tenta criar um emprestimo, aplicando as devidas restrições
+     * de cada tipo de usuário.
+     *
+     * @return Um novo #Emprestimo (em aberto) no nome do próprio
+     * usuário.
+     */
     public Emprestimo emprestaLivro(Livro l, long data_atual)
         throws EmprestimoException
     {
         // Verifica se está penalizado
-        if(estaPenalizado())
+        if(estaPenalizado(data_atual))
         {
             throw new EmprestimoException("Está penalizado por " +
                             (pegaPena() - data_atual) + " dia(s).");

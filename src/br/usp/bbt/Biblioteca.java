@@ -3,13 +3,14 @@ package br.usp.bbt;
 import org.apache.commons.csv.*;
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Biblioteca
 {
-    private Set<Usuario> usuarios;
-    private Set<Livro> livros;
+    private Map<String, Usuario> usuarios;
+    private Map<Integer, Livro> livros;
     private Set<Emprestimo> emprestimos;
-    private long dataAtual;
+    private long data_atual;
     private String dir_dados;
     private int prox_id;
 
@@ -20,7 +21,7 @@ public class Biblioteca
      */
     public Biblioteca(String dir)
     {
-        this(dir, System.currentTimeMillis()/(60*60*24*1000));
+        this(dir, -1);
     }
 
     /**
@@ -32,8 +33,8 @@ public class Biblioteca
     public Biblioteca(String dir, long data)
     {
         this.dir_dados = dir;
-        this.livros = new HashSet<Livro>();
-        this.usuarios = new TreeSet<Usuario>();
+        this.livros = new TreeMap<Integer, Livro>();
+        this.usuarios = new LinkedHashMap<String, Usuario>();
         this.emprestimos = new TreeSet<Emprestimo>();
 
         // Tenta carregar dados já existentes
@@ -65,7 +66,7 @@ public class Biblioteca
         {
             Usuario novo = new Usuario();
             novo.carregaDados(empilhaCSVRecord(r));
-            usuarios.add(novo);
+            usuarios.put(novo.pegaUsername(), novo);
         }
 
         // Cria um parser para os empréstimos
@@ -89,11 +90,11 @@ public class Biblioteca
         {
             Livro novo = new Livro();
             novo.carregaDados(empilhaCSVRecord(r));
-            livros.add(novo);
+            livros.put(novo.pegaId(), novo);
         }
 
         // Gera prox_id olhando qual o maior id ate agora
-        prox_id = livros.stream()
+        prox_id = livros.values().stream()
             .mapToInt(Livro::pegaId)
             .max()
             .orElse(0) + 1;
@@ -106,19 +107,30 @@ public class Biblioteca
      */
     public void salvaDados() throws FileNotFoundException, IOException
     {
-        escreveRegistros(new File(dir_dados, "usuarios.csv"), usuarios);
-        escreveRegistros(new File(dir_dados, "livros.csv"), livros);
-        escreveRegistros(new File(dir_dados, "emprestimos.csv"), emprestimos);
+        escreveRegistros(new File(dir_dados, "usuarios.csv"),
+                usuarios.values());
+        escreveRegistros(new File(dir_dados, "livros.csv"),
+                livros.values());
+        escreveRegistros(new File(dir_dados, "emprestimos.csv"),
+                emprestimos);
     }
 
     /**
      * Adiciona um novo usuário na biblioteca.
      *
-     * Se um usuário com o mesmo username já estiver cadastrado nada acontece.
+     * Se um usuário com o mesmo username já estiver cadastrado
+     * nada acontece.
      */
     public void cadastraUsuario(String tipo, String username, String nome)
     {
-        usuarios.add(new Usuario(username, nome, -1, 0, tipo));
+        // Se já existe a pena e qtd. de livros não pode mudar...
+        Usuario u = usuarios.get(username);
+        if(u != null)
+            usuarios.put(username, new Usuario(username, nome,
+                        u.pegaPena(), u.pegaQtdLivros(), tipo));
+        else
+            usuarios.put(username, new Usuario(username, nome,
+                         -1, 0, tipo));
     }
 
     /**
@@ -127,8 +139,8 @@ public class Biblioteca
     public void cadastraLivro(String titulo, String autor,
                               String genero, int copias)
     {
-        for(int i = 0; i < copias; ++i)
-            livros.add(new Livro(prox_id++, titulo, genero));
+        for(int i = 0; i < copias; ++i, ++prox_id)
+            livros.put(prox_id, new Livro(prox_id, titulo, autor, genero));
     }
 
     /**
@@ -142,9 +154,23 @@ public class Biblioteca
      * Se por algum motivo não for possível fazer o empréstimo, uma excessão
      * é lançada descrevendo o motivo.
      */
-    public void registraEmprestimo(String username, int id)
+    public void registraEmprestimo(String username, int id) 
+        throws EmprestimoException
     {
-        //TODO 
+        // Busca os argumentos
+        Usuario u = usuarios.get(username);
+        if(u == null)
+            throw new EmprestimoException("Usuário inexistente!");
+        Livro l = livros.get(id);
+        if(l == null)
+            throw new EmprestimoException("Livro inexistente!");
+
+        // Verifica se o livro esta disponivel
+        if(!estaDisponivel(id))
+            throw new EmprestimoException("Livro indisponível.");
+
+        // Verifica se o usuario pode pegar o livro
+        emprestimos.add(u.emprestaLivro(l, data_atual));
     }
 
     /**
@@ -156,11 +182,36 @@ public class Biblioteca
      * **Nota:** Em caso de atraso o proprio usuário calcula e aplica a
      * penalidade após a devolução.
      *
-     * @param id ID do livro sendo devolvido
+     * @param id ID do livro sendo devolvido.
+     *
+     * @return true se achou e devolveu com sucesso.
      */
-    public void registraDevolucao(int id)
+    public boolean registraDevolucao(int id)
     {
+        // Procura um emprestimo em aberto com o id especificado
+        List<Emprestimo> achado = emprestimos.stream()
+            .filter(e -> e.pegaIdLivro() == id)
+            .limit(2)
+            .collect(Collectors.toList());
 
+        // Testa possíveis inconsistências nos dados caso o mesmo livro
+        // esteja emprestado por mais de uma pessoa ao mesmo temp
+        if(achado.size() > 1)
+            throw new RuntimeException("Dados inconsistentes detectados!");
+
+        // Se o livro não existe ou ja foi devolvido
+        if(achado.isEmpty())
+            return false; // Não faz nada
+
+        // Procura o usuário responsável pela devoulção
+        Usuario u = usuarios.get(achado.get(0).pegaUsername());
+        if(u == null)
+            throw new RuntimeException("Dados inconsistentes detectados!");
+
+        // Registra a devolução
+        u.devolveLivro(achado.get(0), pegaData());
+
+        return true;
     }
 
     /**
@@ -171,23 +222,52 @@ public class Biblioteca
      * do mesmo livro numa data futura. **Ou seja**, para que o livro esteja
      * disponível todas as datas de devolução deve ser anteriores à data
      * atual e não pode haver um empréstimo em aberto.
+     *
+     * @return true Se o livro existir e estiver disponível.
      */
     public boolean estaDisponivel(int id)
     {
-        return false;
+        // Procura o livro
+        Livro l = livros.get(id);
+        if(l == null)
+            return false;
+
+        // Checa se o livro ainda não foi devolvido por alguém 
+        boolean futuro = emprestimos.stream()
+            .filter(e -> !e.devolvido())
+            .findAny()
+            .isPresent();
+        if(futuro) return false;
+
+        // Checa se o livro não será retirado por um usuário no futuro
+        return emprestimos.stream()
+            .filter(e -> e.pegaDataDevolucao() > pegaData())
+            .findAny()
+            .isPresent();
     }
 
-    // "Getters e setters"
-    public Set<Usuario> pegaUsuarios() {return usuarios;}
-    public Set<Livro> pegaLivros() {return livros;}
-    public Set<Emprestimo> pegaEmprestimos() {return emprestimos;}
-    public void defineData(long data) {this.dataAtual = data;}
+    /**
+     * Define a data usada pela biblioteca.
+     *
+     * Se a data for menor que zero, o relogio do sistema é usado.
+     * Caso contrário a data é congelada no dia especificado.
+     */
+    public void defineData(long data) {this.data_atual = data;}
 
+    /**
+     * Retorna a data atual da biblioteca.
+     */
+    public long pegaData()
+    {
+        return data_atual < 0 ? System.currentTimeMillis()/86400000 :
+                                data_atual;
+    }
 
     /**
      * Escreve uma sequencia de registros no arquivo dado.
      */
-    private void escreveRegistros(File arquivo, Set<? extends Registro> regs)
+    private void
+    escreveRegistros(File arquivo, Iterable<? extends Registro> regs)
     throws FileNotFoundException, IOException
     {
         // Abre o arquivo e cria um "printer" para manipular a saída
@@ -230,8 +310,16 @@ public class Biblioteca
     public static void main(String args[]) throws Exception
     {
         Biblioteca b = new Biblioteca(args[0]);
-        b.cadastraLivro("Guia do mochileiro...", "alguem q eu desconheco", "SciFi", 1);
+        
+        b.cadastraLivro("Guia do mochileiro", "Asimov, Isaac", "SciFi", 3);
+        b.cadastraLivro("Design Patterns: " + 
+                        "Elements of Reusable Object-Oriented Software",
+                        "GoF", "TEXTO", 1);
+        b.cadastraLivro("Moby-Dick", "Melville, Herman ", "TEXTO", 1);
+
         b.cadastraUsuario("ALUNO", "bardes", "Paulo Bardes");
+        b.cadastraUsuario("PROFESSOR", "adenilso", "Adenilso Simão");
+
         b.salvaDados();
     }
 }
