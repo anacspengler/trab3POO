@@ -5,12 +5,18 @@
  */
 package br.usp.bbt.ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -22,6 +28,8 @@ public class ReceberLivroController implements Initializable {
     private TextField id;
     @FXML
     private TextField nomeDeUsuario;
+    @FXML
+    private Button sair;
 
     /**
      * Initializes the controller class.
@@ -32,9 +40,26 @@ public class ReceberLivroController implements Initializable {
     }    
 
     @FXML
-    private void receber(ActionEvent event) {
+    private void receber(ActionEvent event) throws IOException {
         System.out.println(nomeDeUsuario.getCharacters());
         System.out.println(id.getCharacters());
+        
+        Scene scn = sair.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        menu.setScene(scene);
+        menu.show();
+    }
+
+    @FXML
+    private void sair(ActionEvent event) throws IOException {
+        Scene scn = sair.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        menu.setScene(scene);
+        menu.show();
     }
     
 }

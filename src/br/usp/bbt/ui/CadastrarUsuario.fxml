@@ -26,9 +26,10 @@
     </HBox>
     <TextField fx:id="nome" layoutX="192.0" layoutY="126.0" prefWidth="300.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
     <TextField fx:id="nomeDeUsuario" layoutX="50.0" layoutY="111.0" prefWidth="300.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="111.0" />
-      <Button layoutX="397.0" layoutY="179.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="179.0" />
+      <Button layoutX="216.0" layoutY="180.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="180.0" />
       <Label layoutX="50.0" layoutY="29.0" text="Insira o Nome" />
       <Label layoutX="51.0" layoutY="90.0" text="Insira o Nome de Usuário" />
       <Label layoutX="51.0" layoutY="153.0" text="Esolha o Tipo de Usuário" />
+      <Button fx:id="sair" layoutX="288.0" layoutY="180.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
   </children>
 </AnchorPane>

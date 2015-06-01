@@ -3,26 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bibliotecainterface;
+package br.usp.bbt.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author sushi
  */
 public class BibliotecaInterface extends Application {
-    
+       
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SelecionarData.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
     }
@@ -30,8 +31,8 @@ public class BibliotecaInterface extends Application {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

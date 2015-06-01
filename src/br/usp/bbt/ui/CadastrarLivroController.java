@@ -5,13 +5,19 @@
  */
 package br.usp.bbt.ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -27,6 +33,10 @@ public class CadastrarLivroController implements Initializable {
     private ComboBox<?> tipoLivro;
     @FXML
     private TextField id;
+    @FXML
+    private Button sair;
+    @FXML
+    private TextField autor;
 
     /**
      * Initializes the controller class.
@@ -42,10 +52,28 @@ public class CadastrarLivroController implements Initializable {
     }
 
     @FXML
-    private void salvar(ActionEvent event) {
+    private void salvar(ActionEvent event) throws IOException {
         System.out.println(titulo.getCharacters());
+        System.out.println(autor.getCharacters());
         System.out.println(genero.getCharacters());
         System.out.println(id.getCharacters());
         System.out.println(tipoLivro.getValue());
+        
+        Scene scn = sair.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        menu.setScene(scene);
+        menu.show();
+    }
+
+    @FXML
+    private void sair(ActionEvent event) throws IOException {
+        Scene scn = sair.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        menu.setScene(scene);
+        menu.show();
     }
 }

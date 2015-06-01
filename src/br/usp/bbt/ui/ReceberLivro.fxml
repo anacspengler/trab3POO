@@ -11,8 +11,9 @@
    <children>
       <TextField fx:id="id" layoutX="67.0" layoutY="72.0" prefWidth="200.0" />
       <TextField fx:id="nomeDeUsuario" layoutX="67.0" layoutY="127.0" prefWidth="200.0" />
-      <Button layoutX="315.0" layoutY="94.0" mnemonicParsing="false" onAction="#receber" text="Receber" />
+      <Button layoutX="315.0" layoutY="72.0" mnemonicParsing="false" onAction="#receber" text="Receber" />
       <Label layoutX="67.0" layoutY="45.0" text="ID do Livro" />
       <Label layoutX="68.0" layoutY="106.0" text="Nome de Usuário" />
+      <Button fx:id="sair" layoutX="314.0" layoutY="127.0" mnemonicParsing="false" onAction="#sair" prefWidth="73.0" text="Sair" />
    </children>
 </AnchorPane>

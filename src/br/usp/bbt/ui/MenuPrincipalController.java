@@ -14,6 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,6 +25,10 @@ import javafx.stage.StageStyle;
  * @author sushi
  */
 public class MenuPrincipalController implements Initializable  {
+    @FXML
+    private AnchorPane window;
+    @FXML
+    private Button sair;
     
     /**
      * Initializes the controller class.
@@ -36,9 +42,11 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void cadastrarUsuario(ActionEvent event) throws IOException {
-                
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.hide();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Cadastro de Usuarios");
         Parent root = FXMLLoader.load(getClass().getResource("CadastrarUsuario.fxml"));
@@ -51,8 +59,11 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void cadastrarLivro(ActionEvent event) throws IOException {
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.hide();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Cadastro de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("CadastrarLivro.fxml"));
@@ -65,8 +76,11 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void listarUsuarios(ActionEvent event) throws IOException {
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.hide();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Lista de Usuarios");
         Parent root = FXMLLoader.load(getClass().getResource("ListarUsuarios.fxml"));
@@ -79,8 +93,11 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void listarLivros(ActionEvent event) throws IOException {
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.hide();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Lista de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("ListarLivro.fxml"));
@@ -93,8 +110,11 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void emprestimos(ActionEvent event) throws IOException {
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.hide();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Empréstimo de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("EmprestarLivro.fxml"));
@@ -107,8 +127,11 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void devolucoes(ActionEvent event) throws IOException {
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.hide();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Devolução de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("ReceberLivro.fxml"));
@@ -117,6 +140,13 @@ public class MenuPrincipalController implements Initializable  {
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void sair(ActionEvent event) {
+        Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.close();
     }
 
 

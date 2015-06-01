@@ -14,7 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 /**
@@ -22,9 +23,15 @@ import javafx.stage.Stage;
  *
  * @author sushi
  */
-public class SelecionarDataController implements Initializable {
+public class ListarLivroController implements Initializable {
     @FXML
-    private DatePicker dataAtual;
+    private TableColumn<?, ?> id;
+    @FXML
+    private TableColumn<?, ?> titulo;
+    @FXML
+    private TableColumn<?, ?> genero;
+    @FXML
+    private Button sair;
 
     /**
      * Initializes the controller class.
@@ -35,14 +42,13 @@ public class SelecionarDataController implements Initializable {
     }    
 
     @FXML
-    private void Enviar(ActionEvent event) throws IOException {
-        Scene scn = dataAtual.getScene();
+    private void sair(ActionEvent event) throws IOException {
+        Scene scn = sair.getScene();
         Stage menu = (Stage) scn.getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
         Scene scene = new Scene(root);
         menu.setScene(scene);
         menu.show();
-        System.out.println(dataAtual.getValue());
     }
     
 }
