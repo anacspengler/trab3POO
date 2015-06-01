@@ -61,7 +61,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Cadastro de Usuarios");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/CadastrarUsuario.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/CadastrarUsuario.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -77,7 +77,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Cadastro de Livros");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/CadastrarLivro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/CadastrarLivro.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -93,7 +93,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Lista de Usuarios");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/ListarUsuarios.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/ListarUsuarios.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -109,7 +109,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Lista de Livros");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/ListarLivro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/ListarLivro.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -125,7 +125,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Empréstimo de Livros");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/EmprestarLivro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/EmprestarLivro.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -141,7 +141,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Devolução de Livros");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/ReceberLivro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/ReceberLivro.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -157,7 +157,7 @@ public class MenuPrincipalController implements Initializable  {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Terminar");
-        Parent root = FXMLLoader.load(getClass().getResource("res/ui/Aviso.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/Aviso.fxml"));
 
         Scene scene = new Scene(root);
 
