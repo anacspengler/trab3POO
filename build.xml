@@ -6,7 +6,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
-    <property name="main-class"  value="br.usp.bbt.Biblioteca"/>
+    <property name="main-class"  value="br.usp.bbt.ui.BibliotecaInterface"/>
     <property name="author.name" value="Paulo Bardes et al."/>
 
     <target name="clean">
@@ -26,7 +26,7 @@
                 <attribute name="Author" value="${author.name}"/>
             </manifest>
 
-            <!--<fileset dir="." includes="${res.dir}/**"/>-->
+            <fileset dir="." includes="${res.dir}/**"/>
             <fileset dir="${lib.dir}" includes="**/*.class"/>
             <fileset dir="${classes.dir}"/>
             <fileset dir="${src.dir}" includes="**/*.java"/>

@@ -26,28 +26,19 @@ import br.usp.bbt.*;
 public class SelecionarDataController implements Initializable {
     @FXML
     private DatePicker dataAtual;
-    
-    private final bib;
+    private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
     }    
 
     @FXML
     private void Enviar(ActionEvent event) throws IOException {
-        Scene scn = dataAtual.getScene();
-        Stage menu = (Stage) scn.getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
-        Scene scene = new Scene(root);
-        menu.setScene(scene);
-        menu.show();
-        
         bib.defineData(dataAtual.getValue().toEpochDay());
-        //System.out.println(dataAtual.getValue());
+        dataAtual.getScene().getWindow().hide();
     }
     
 }

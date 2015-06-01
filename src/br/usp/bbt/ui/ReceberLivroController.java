@@ -59,9 +59,7 @@ public class ReceberLivroController implements Initializable {
 
     @FXML
     private void sair(ActionEvent event) throws IOException {
-        Scene scn = sair.getScene();
-        Stage menu = (Stage) scn.getWindow();
-        menu.close();
+        sair.getScene().getWindow().hide();
     }
 
     @FXML
