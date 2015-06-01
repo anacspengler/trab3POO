@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -25,6 +26,17 @@ import javafx.stage.StageStyle;
  * @author sushi
  */
 public class MenuPrincipalController implements Initializable  {
+    /**
+     * Singleton da biblioteca.
+     *
+     * Usado por todos os outros controladores para acessar os dados e
+     * lidar com a biblioteca em gera.
+     */
+    private static final Biblioteca bib = new Biblioteca("bib");
+
+
+    static Biblioteca pegaBiblioteca() {return bib;}
+
     @FXML
     private AnchorPane window;
     @FXML
