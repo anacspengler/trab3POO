@@ -9,7 +9,7 @@ public class Biblioteca
 {
     private Map<String, Usuario> usuarios;
     private Map<Integer, Livro> livros;
-    private Set<Emprestimo> emprestimos;
+    private List<Emprestimo> emprestimos;
     private long data_atual;
     private String dir_dados;
     private int prox_id;
@@ -35,7 +35,8 @@ public class Biblioteca
         this.dir_dados = dir;
         this.livros = new TreeMap<Integer, Livro>();
         this.usuarios = new LinkedHashMap<String, Usuario>();
-        this.emprestimos = new TreeSet<Emprestimo>();
+        this.emprestimos = new ArrayList<Emprestimo>();
+        this.data_atual = data;
 
         // Tenta carregar dados já existentes
         try {carregaDados();}
@@ -170,7 +171,7 @@ public class Biblioteca
             throw new EmprestimoException("Livro indisponível.");
 
         // Verifica se o usuario pode pegar o livro
-        emprestimos.add(u.emprestaLivro(l, data_atual));
+        emprestimos.add(u.emprestaLivro(l, pegaData()));
     }
 
     /**
@@ -198,7 +199,7 @@ public class Biblioteca
         // esteja emprestado por mais de uma pessoa ao mesmo temp
         if(achado.size() > 1)
             throw new RuntimeException("Dados inconsistentes detectados!");
-
+ 
         // Se o livro não existe ou ja foi devolvido
         if(achado.isEmpty())
             return false; // Não faz nada
@@ -233,11 +234,14 @@ public class Biblioteca
             return false;
 
         // Checa se o livro ainda não foi devolvido por alguém 
-        if(emprestimos.stream().anyMatch(e -> !e.devolvido()))
+        if(emprestimos.stream()
+                .filter(e -> e.pegaIdLivro() == id)
+                .anyMatch(e -> !e.devolvido()))
             return false;
 
         // Checa se o livro não será retirado por um usuário no futuro
         return emprestimos.stream()
+            .filter(e -> e.pegaIdLivro() == id)
             .allMatch(e -> e.pegaDataDevolucao() <= pegaData());
     }
 
@@ -304,7 +308,7 @@ public class Biblioteca
 
     public static void main(String args[]) throws Exception
     {
-        Biblioteca b = new Biblioteca(args[0], 1234);
+        Biblioteca b = new Biblioteca(args[0], 1000);
         
         b.cadastraLivro("Guia do mochileiro", "Asimov, Isaac", "SciFi", 3);
         b.cadastraLivro("Design Patterns: " + 
@@ -315,10 +319,16 @@ public class Biblioteca
         b.cadastraUsuario("ALUNO", "bardes", "Paulo Bardes");
         b.cadastraUsuario("PROFESSOR", "adenilso", "Adenilso Simão");
 
-        b.registraEmprestimo("bardes", 2);
-        b.defineData(1242);
-        b.registraDevolucao(2);
+        // Data = 1000
+        b.registraEmprestimo("bardes", 2);  // Devolve ate 1015
+        b.registraEmprestimo("bardes", 4);  // Devolve ate 1015
 
+        b.defineData(b.pegaData() + 5);
+        b.registraDevolucao(2);             // Data = 1005 (não atrasou)
+        
+        b.defineData(b.pegaData() + 20);    // Data = 1025
+        b.registraDevolucao(4);             // Atrasou 10 dias
+                                            // Penaliza ate 1035
 
         b.salvaDados();
     }

@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Classe representando um emprestimo.
  */
-class Emprestimo implements Registro, Comparable<Emprestimo>
+class Emprestimo implements Registro
 {
     private int id;          // ID do livro emprestado
     private String username; // username do usuário que pegou o livro
@@ -28,11 +28,6 @@ class Emprestimo implements Registro, Comparable<Emprestimo>
         this.data_emp = data_emp;
         this.data_dev = data_dev;
         this.data_rec = -1;
-    }
-
-    public int compareTo(Emprestimo e)
-    {
-        return Long.compare(data_emp, e.pegaDataEmprestado());
     }
 
     // Registra a data em que o livro for de fato recebido de volta
