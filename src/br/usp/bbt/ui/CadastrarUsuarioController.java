@@ -27,7 +27,7 @@ import br.usp.bbt.*;
  */
 public class CadastrarUsuarioController implements Initializable {
     @FXML
-    private ComboBox<?> tipoUsuario;
+    private ComboBox<? extends String> tipoUsuario;
     @FXML
     private TextField nome;
     @FXML
@@ -53,15 +53,13 @@ public class CadastrarUsuarioController implements Initializable {
     @FXML
     private void salvar(ActionEvent event) throws IOException {       
         
-        bib.cadastraUsuario();
-        System.out.println(nome.getCharacters());
-        System.out.println(nomeDeUsuario.getCharacters());
-        System.out.println(tipoUsuario.getValue());       
+        bib.cadastraUsuario(
+                tipoUsuario.getValue(),
+                nomeDeUsuario.getCharacters().toString(),
+                nome.getCharacters().toString()
+        );
         
-        Scene scn = sair.getScene();
-        Stage menu = (Stage) scn.getWindow();
-        menu.close();
-
+        sair.getScene().getWindow().hide();
     }
 
     @FXML
