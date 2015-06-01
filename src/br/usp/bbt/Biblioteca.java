@@ -262,6 +262,24 @@ public class Biblioteca
                                 data_atual;
     }
 
+    public List<Emprestimo> listaAtraso()
+    {
+        return emprestimos.stream()
+            .filter(e -> e.pegaDataDevolucao() < pegaData())
+            .filter(e -> !e.devolvido())
+            .collect(Collectors.toList());
+    }
+
+    public void pegaUsuarios(List<Usuario> dest)
+    {
+        dest.addAll(usuarios.values());
+    }
+
+    public void pegaLivros(List<Livro> dest)
+    {
+        dest.addAll(livros.values());
+    }
+
     private Stack<String> empilhaCSVRecord(CSVRecord r)
     {
         Stack<String> empilhado = new Stack<String>();
