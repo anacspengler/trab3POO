@@ -156,6 +156,7 @@ public class Usuario implements Registro, Comparable<Usuario>
             throw new RuntimeException("Tipo de usuário inválido!");
         }
 
+        ++livros_emprestados;
         return new Emprestimo(pegaUsername(), l.pegaId(), data_atual,
                               data_dev);
     }
