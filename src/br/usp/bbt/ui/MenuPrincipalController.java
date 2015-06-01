@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import br.usp.bbt.*;
+import javafx.application.Platform;
 
 /**
  * FXML Controller class
@@ -149,10 +150,19 @@ public class MenuPrincipalController implements Initializable  {
     }
 
     @FXML
-    private void sair(ActionEvent event) {
+    private void sair(ActionEvent event) throws IOException {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
-        menu.close();
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(false);
+        stage.setTitle("Terminar");
+        Parent root = FXMLLoader.load(getClass().getResource("Aviso.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
 

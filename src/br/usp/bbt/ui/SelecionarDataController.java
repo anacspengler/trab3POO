@@ -26,7 +26,7 @@ import br.usp.bbt.*;
 public class SelecionarDataController implements Initializable {
     @FXML
     private DatePicker dataAtual;
-
+    
     private final bib;
 
     /**
@@ -34,7 +34,7 @@ public class SelecionarDataController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        bib = MenuPrincipalController.pegaBiblioteca();
+        Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
     }    
 
     @FXML
@@ -45,7 +45,7 @@ public class SelecionarDataController implements Initializable {
         Scene scene = new Scene(root);
         menu.setScene(scene);
         menu.show();
-
+        
         bib.defineData(dataAtual.getValue().toEpochDay());
         //System.out.println(dataAtual.getValue());
     }
