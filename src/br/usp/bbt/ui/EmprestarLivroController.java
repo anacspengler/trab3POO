@@ -8,6 +8,8 @@ package br.usp.bbt.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -33,13 +37,20 @@ public class EmprestarLivroController implements Initializable {
     private DatePicker dataRetorno;
     @FXML
     private Button sair;
+    @FXML
+    private ListView<?> list;
+    
+    public static final ObservableList emprestimo = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        list.setItems(emprestimo);
     }    
 
     @FXML
@@ -64,6 +75,14 @@ public class EmprestarLivroController implements Initializable {
         Scene scene = new Scene(root);
         menu.setScene(scene);
         menu.show();
+    }
+
+    @FXML
+    private void adicionar(ActionEvent event) {
+      
+        emprestimo.add(dataRetorno.getValue());
+        emprestimo.add(nomeDeUsuario.getText());
+        emprestimo.add(id.getText());  
     }
     
 }
