@@ -6,10 +6,10 @@ import java.util.*;
 
 public class Biblioteca
 {
-    private Set<Usuario> usuarios;
-    private Set<Livro> livros;
+    private Map<String, Usuario> usuarios;
+    private Map<Integer, Livro> livros;
     private Set<Emprestimo> emprestimos;
-    private long dataAtual;
+    private long data_atual;
     private String dir_dados;
     private int prox_id;
 
@@ -20,7 +20,7 @@ public class Biblioteca
      */
     public Biblioteca(String dir)
     {
-        this(dir, System.currentTimeMillis()/(60*60*24*1000));
+        this(dir, -1);
     }
 
     /**
@@ -32,8 +32,8 @@ public class Biblioteca
     public Biblioteca(String dir, long data)
     {
         this.dir_dados = dir;
-        this.livros = new HashSet<Livro>();
-        this.usuarios = new TreeSet<Usuario>();
+        this.livros = new TreeMap<Integer, Livro>();
+        this.usuarios = new LinkedHashMap<String, Usuario>();
         this.emprestimos = new TreeSet<Emprestimo>();
 
         // Tenta carregar dados já existentes
@@ -65,7 +65,7 @@ public class Biblioteca
         {
             Usuario novo = new Usuario();
             novo.carregaDados(empilhaCSVRecord(r));
-            usuarios.add(novo);
+            usuarios.put(novo.pegaUsername(), novo);
         }
 
         // Cria um parser para os empréstimos
@@ -89,11 +89,11 @@ public class Biblioteca
         {
             Livro novo = new Livro();
             novo.carregaDados(empilhaCSVRecord(r));
-            livros.add(novo);
+            livros.put(novo.pegaId(), novo);
         }
 
         // Gera prox_id olhando qual o maior id ate agora
-        prox_id = livros.stream()
+        prox_id = livros.values().stream()
             .mapToInt(Livro::pegaId)
             .max()
             .orElse(0) + 1;
@@ -106,19 +106,30 @@ public class Biblioteca
      */
     public void salvaDados() throws FileNotFoundException, IOException
     {
-        escreveRegistros(new File(dir_dados, "usuarios.csv"), usuarios);
-        escreveRegistros(new File(dir_dados, "livros.csv"), livros);
-        escreveRegistros(new File(dir_dados, "emprestimos.csv"), emprestimos);
+        escreveRegistros(new File(dir_dados, "usuarios.csv"),
+                usuarios.values());
+        escreveRegistros(new File(dir_dados, "livros.csv"),
+                livros.values());
+        escreveRegistros(new File(dir_dados, "emprestimos.csv"),
+                emprestimos);
     }
 
     /**
      * Adiciona um novo usuário na biblioteca.
      *
-     * Se um usuário com o mesmo username já estiver cadastrado nada acontece.
+     * Se um usuário com o mesmo username já estiver cadastrado
+     * nada acontece.
      */
     public void cadastraUsuario(String tipo, String username, String nome)
     {
-        usuarios.add(new Usuario(username, nome, -1, 0, tipo));
+        // Se já existe a pena e qtd. de livros não pode mudar...
+        Usuario u = usuarios.get(username);
+        if(u != null)
+            usuarios.put(username, new Usuario(username, nome,
+                        u.pegaPena(), u.pegaQtdLivros(), tipo));
+        else
+            usuarios.put(username, new Usuario(username, nome,
+                         -1, 0, tipo));
     }
 
     /**
@@ -127,8 +138,8 @@ public class Biblioteca
     public void cadastraLivro(String titulo, String autor,
                               String genero, int copias)
     {
-        for(int i = 0; i < copias; ++i)
-            livros.add(new Livro(prox_id++, titulo, genero));
+        for(int i = 0; i < copias; ++i, ++prox_id)
+            livros.put(prox_id, new Livro(prox_id, titulo, autor, genero));
     }
 
     /**
@@ -177,17 +188,16 @@ public class Biblioteca
         return false;
     }
 
-    // "Getters e setters"
-    public Set<Usuario> pegaUsuarios() {return usuarios;}
-    public Set<Livro> pegaLivros() {return livros;}
-    public Set<Emprestimo> pegaEmprestimos() {return emprestimos;}
-    public void defineData(long data) {this.dataAtual = data;}
-
+    public void defineData(long data)
+    {
+        this.data_atual = data;
+    }
 
     /**
      * Escreve uma sequencia de registros no arquivo dado.
      */
-    private void escreveRegistros(File arquivo, Set<? extends Registro> regs)
+    private void
+    escreveRegistros(File arquivo, Iterable<? extends Registro> regs)
     throws FileNotFoundException, IOException
     {
         // Abre o arquivo e cria um "printer" para manipular a saída

@@ -62,7 +62,7 @@ public class Usuario implements Registro, Comparable<Usuario>
     {
         if(dias < 1) // Não permite penas negativas ou nulas
             return;
-        else if(estaPenalizado())   // Se ja estiver penalizado
+        else if(estaPenalizado(data_atual)) // Se ja estiver penalizado
             penalizado_ate += dias; // Apenas acumula na pena atual
         else // Se não, uma pena é calculada à partir da data atual 
             penalizado_ate = data_atual + dias;
@@ -109,7 +109,7 @@ public class Usuario implements Registro, Comparable<Usuario>
         throws EmprestimoException
     {
         // Verifica se está penalizado
-        if(estaPenalizado())
+        if(estaPenalizado(data_atual))
         {
             throw new EmprestimoException("Está penalizado por " +
                             (pegaPena() - data_atual) + " dia(s).");
