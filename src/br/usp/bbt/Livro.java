@@ -39,9 +39,9 @@ class Livro implements Registro, Comparable<Livro>
     {
         Stack<String> dados = new Stack<String>();
         dados.push(Long.toString(id));
+        dados.push(autor);
         dados.push(titulo);
         dados.push(genero);
-        dados.push(autor);
         return dados;
     }
 
