@@ -107,6 +107,15 @@ public class Usuario implements Registro, Comparable<Usuario>
         return dias_de_atraso;
     }
 
+    /**
+     * Cria um #Emprestimo do #Livro l em nome do #Usuario.
+     *
+     * Tenta criar um emprestimo, aplicando as devidas restrições
+     * de cada tipo de usuário.
+     *
+     * @return Um novo #Emprestimo (em aberto) no nome do próprio
+     * usuário.
+     */
     public Emprestimo emprestaLivro(Livro l, long data_atual)
         throws EmprestimoException
     {
