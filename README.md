@@ -1,10 +1,11 @@
-# trab3POO
-Este e o trabalho de POO que implementamos um sistema de biblioteca.
+# Biblioteca
+Este é o trabalho de POO que implementamos o sistema de uma biblioteca com três tipos de usuarios: `ALUNO`, `PROFESSOR` e `COMUNIDADE`. Cada tipo de usuario tem um período e uma quantidade de livros máximos que podem emprestar diferentes. Além do mais algus tipos de livros são restiros à alunos e professores.
 
-Nessa biblioteca existem tres tipos de usuarios: alunos, professores e comunidade.Cada tipo de usuario tem um periodo e uma quantidade de livros que podem fazer emprestimos, e o tipo de livro que podem emprestar.Sao dois os tipos de livros: geral e texto.
+# Execução
+Baixe o executável pelo seguinte link: https://github.com/anacspengler/trab3POO/releases/tag/Fim em seguida rode: `java -jar T3.jar`
 
-Para funcoes de interacao com o usuario, existe uma interface, implementada usando o construtor de cenario do javaFx que gera arquivos XML, que separa o codigo da interface do codigo do programa.
+# Compilação
+Para compilar à partir do código fonte clone o repo e use o seguinte comando: `ant`
 
-Na interface, alem de entar com os dados e possivel simular uma data.Para datas no passado, nao e permitido alterar informacoes, limitado somente a leitura dos imprestimos.Para datas no futuro, e permitido tanto fazer alteracoes como ter acesso as informacoes, porem ficara guardadas essas alteracoes.  
-
-Para o banco de dados
+# Documentação
+Veja: https://anacspengler.github.io/trab3POO/
