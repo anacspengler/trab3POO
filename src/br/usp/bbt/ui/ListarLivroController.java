@@ -7,7 +7,6 @@ package br.usp.bbt.ui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
+import javafx.collections.*;
 import br.usp.bbt.*;
+import javafx.scene.control.ListView;
+import java.util.*;
 
 /**
  * FXML Controller class
@@ -27,12 +29,12 @@ import br.usp.bbt.*;
 public class ListarLivroController implements Initializable {
  
 	@FXML
-    private ListView<?> listLivros;
+    private ListView<Livro> listLivros;
     @FXML
     private Button sair;
     
     List livros;
-    public static final ObservableList<String> showLivros = FXCollections.observableArrayList();
+    public static final ObservableList<Livro> showLivros = FXCollections.observableArrayList();
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
@@ -40,11 +42,8 @@ public class ListarLivroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-		bib.pegaLivros(livros);
-		showLivros.addAll(livros);		
-		listLivros.setItems(showLivros);
-        // TODO
-        
+        showLivros.clear();
+		bib.pegaLivros(showLivros);
     }    
 
     @FXML

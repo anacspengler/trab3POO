@@ -7,7 +7,6 @@ package br.usp.bbt.ui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +15,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.collections.*;
 import br.usp.bbt.*;
+import javafx.scene.control.ListView;
+import java.util.*;
 
 /**
  * FXML Controller class
@@ -30,7 +32,7 @@ public class ListarUsuariosController implements Initializable {
     private ListView<?> listUsuarios;
     
     List usuarios;
-    public static final ObservableList<String> showUsuarios = FXCollections.observableArrayList();
+    public static final ObservableList<Usuario> showUsuarios = FXCollections.observableArrayList();
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
@@ -38,10 +40,8 @@ public class ListarUsuariosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-		bib.pegaUsuarios(usuarios);
-		showUsuarios.addAll(usuarios);		
-		listUsuarios.setItems(showUsuarios);
-        // TODO
+        showUsuarios.clear();
+		bib.pegaUsuarios(showUsuarios);
     }    
 
     @FXML

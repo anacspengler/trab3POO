@@ -99,8 +99,8 @@ public class Usuario implements Registro, Comparable<Usuario>
     {
         if(e.devolvido())
             throw new RuntimeException("Dupla devolução!");
-        else if(e.pegaDataEmprestado > data_atual)
-            throw new RuntimeException("Não pode devolver um livro"
+        else if(e.pegaDataEmprestado() > data_atual)
+            throw new RuntimeException("Não pode devolver um livro" +
                                        " antes de emprestar!");
 
         // Calcula os dias de atraso fazendo um "delta"

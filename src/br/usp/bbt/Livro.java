@@ -2,7 +2,7 @@ package br.usp.bbt;
 
 import java.util.Stack;
 
-class Livro implements Registro, Comparable<Livro>
+public class Livro implements Registro, Comparable<Livro>
 {
     private String titulo;
     private String genero;
