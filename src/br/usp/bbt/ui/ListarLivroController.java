@@ -26,10 +26,13 @@ import br.usp.bbt.*;
  */
 public class ListarLivroController implements Initializable {
  
+	@FXML
+    private ListView<?> listLivros;
     @FXML
     private Button sair;
-
     
+    List livros;
+    public static final ObservableList<String> showLivros = FXCollections.observableArrayList();
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
@@ -37,6 +40,9 @@ public class ListarLivroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+		bib.pegaLivros(livros);
+		showLivros.addAll(livros);		
+		listLivros.setItems(showLivros);
         // TODO
         
     }    

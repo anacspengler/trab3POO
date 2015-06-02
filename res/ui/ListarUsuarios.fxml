@@ -15,6 +15,6 @@
          </font>
       </Label>
       <Button fx:id="sair" layoutX="570.0" layoutY="400.0" mnemonicParsing="false" onAction="#Sair" text="Sair" />
-      <ListView layoutX="57.0" layoutY="134.0" prefHeight="250.0" prefWidth="500.0" />
+      <ListView fx:id="listUsuarios" layoutX="57.0" layoutY="134.0" prefHeight="250.0" prefWidth="500.0" />
    </children>
 </AnchorPane>

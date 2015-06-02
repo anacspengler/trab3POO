@@ -26,7 +26,11 @@ import br.usp.bbt.*;
 public class ListarUsuariosController implements Initializable {
     @FXML
     private Button sair;
+    @FXML
+    private ListView<?> listUsuarios;
     
+    List usuarios;
+    public static final ObservableList<String> showUsuarios = FXCollections.observableArrayList();
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
@@ -34,6 +38,9 @@ public class ListarUsuariosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+		bib.pegaUsuarios(usuarios);
+		showUsuarios.addAll(usuarios);		
+		listUsuarios.setItems(showUsuarios);
         // TODO
     }    
 
