@@ -25,6 +25,12 @@ class Livro implements Registro, Comparable<Livro>
         this.id = id;
     }
 
+    public String toString()
+    {
+        return "[" + id +"] \"" + titulo +
+            "\", " + autor + " - " + genero; 
+    }
+
     public boolean equals(Livro l)
     {
         return id == l.pegaId();

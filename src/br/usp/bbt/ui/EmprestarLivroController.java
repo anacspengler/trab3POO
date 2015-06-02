@@ -50,7 +50,8 @@ public class EmprestarLivroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        emprestimo.clear();
+        bib.pegaLivros(emprestimo);
         list.setItems(emprestimo);
     }    
 
@@ -68,30 +69,29 @@ public class EmprestarLivroController implements Initializable {
 
     @FXML
     private void adicionar(ActionEvent event){
-        emprestimo.add(nomeDeUsuario.getText());
-        emprestimo.add(id.getText());  
-        
         try{
-			bib.registraEmprestimo(nomeDeUsuario.getText(), Integer.parseInt(id.getText()));
+            bib.registraEmprestimo(nomeDeUsuario.getText(), Integer.parseInt(id.getText()));
         }
         catch(EmprestimoException e) {
-			Scene scn = sair.getScene();
-			Stage menu = (Stage) scn.getWindow();
-			Stage stage = new Stage();
-			stage.setResizable(false);
-			stage.setTitle("FALHA");
-			
-			try{
-				Parent root = FXMLLoader.load(getClass().getResource("/res/ui/EmprestimoException.fxml"));
-				Scene scene = new Scene(root);
-				stage.setScene(scene);
-				stage.show();
-			}
-			catch(IOException io)
-			{
-				System.out.println("erro ao abrir EmprestimoException.fxml");
-			}
+            Scene scn = sair.getScene();
+            Stage menu = (Stage) scn.getWindow();
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("FALHA");
+
+            try{
+                Parent root = FXMLLoader.load(getClass().getResource("/res/ui/EmprestimoException.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            catch(IOException io)
+            {
+                System.out.println("erro ao abrir EmprestimoException.fxml");
+            }
         }
+
+        sair.getScene().getWindow().hide();
     }
     
 }
