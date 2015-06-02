@@ -35,6 +35,11 @@ public class Usuario implements Registro, Comparable<Usuario>
         this.tipo = tipo;
     }
 
+    public String toString()
+    {
+        return nome + " - " + username + " [" + tipo + "]";
+    }
+
     public boolean equals(Usuario u)
     {
         return username.equals(u.pegaUsername());
@@ -94,6 +99,9 @@ public class Usuario implements Registro, Comparable<Usuario>
     {
         if(e.devolvido())
             throw new RuntimeException("Dupla devolução!");
+        else if(e.pegaDataEmprestado > data_atual)
+            throw new RuntimeException("Não pode devolver um livro"
+                                       " antes de emprestar!");
 
         // Calcula os dias de atraso fazendo um "delta"
         long dias_de_atraso = data_atual - e.pegaDataDevolucao();
