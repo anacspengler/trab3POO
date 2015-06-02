@@ -26,19 +26,21 @@ import br.usp.bbt.*;
  * @author sushi
  */
 public class CadastrarLivroController implements Initializable {
-    @FXML
-    private TextField titulo;
+   @FXML
+    private Button sair;
+
     @FXML
     private TextField genero;
+
     @FXML
-    private ComboBox<?> tipoLivro;
+    private TextField nCopias;
+
     @FXML
-    private TextField id;
-    @FXML
-    private Button sair;
+    private TextField titulo;
+
     @FXML
     private TextField autor;
-    
+
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
     /**
@@ -50,18 +52,10 @@ public class CadastrarLivroController implements Initializable {
     }    
 
     @FXML
-    private void escolheTipoLivro(ActionEvent event) {
-        System.out.println(tipoLivro.getValue());
-    }
-
-    @FXML
     private void salvar(ActionEvent event) throws IOException {
-        System.out.println(titulo.getCharacters());
-        System.out.println(autor.getCharacters());
-        System.out.println(genero.getCharacters());
-        System.out.println(id.getCharacters());
-        System.out.println(tipoLivro.getValue());
-        
+		
+		bib.cadastraLivro(titulo.getText(), autor.getText(), genero.getText(), Integer.parseInt(nCopias.getText()));
+               
         Scene scn = sair.getScene();
         Stage menu = (Stage) scn.getWindow();
         menu.close();
@@ -69,6 +63,8 @@ public class CadastrarLivroController implements Initializable {
 
     @FXML
     private void sair(ActionEvent event) throws IOException {
-        sair.getScene().getWindow().hide();
+        Scene scn = sair.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        menu.close();
     }
 }

@@ -25,14 +25,10 @@ import br.usp.bbt.*;
  * @author sushi
  */
 public class ListarLivroController implements Initializable {
-    @FXML
-    private TableColumn<?, ?> id;
-    @FXML
-    private TableColumn<?, ?> titulo;
-    @FXML
-    private TableColumn<?, ?> genero;
+ 
     @FXML
     private Button sair;
+
     
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
 
@@ -42,6 +38,7 @@ public class ListarLivroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
 
     @FXML

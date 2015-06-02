@@ -142,6 +142,21 @@ public class MenuPrincipalController implements Initializable  {
         stage.setScene(scene);
         stage.show();
     }
+    
+    @FXML
+    void selecionaData(ActionEvent event) throws IOException{
+		Scene scn = window.getScene();
+        Stage menu = (Stage) scn.getWindow();
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.setTitle("Terminar");
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/SelecionarData.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     private void sair(ActionEvent event) throws IOException {

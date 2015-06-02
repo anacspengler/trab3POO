@@ -13,25 +13,13 @@
   <children>
     <TextField fx:id="titulo" layoutX="192.0" layoutY="126.0" prefWidth="300.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
     <TextField fx:id="genero" layoutX="50.0" layoutY="111.0" prefWidth="300.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="111.0" />
-    <HBox id="HBox" alignment="CENTER" layoutX="39.0" layoutY="293.0" prefHeight="30.0" prefWidth="150.0" spacing="5.0">
-         <children>    
-          <ComboBox id="comboInterval" fx:id="tipoLivro" editable="false" onAction="#escolheTipoLivro" prefHeight="22.0" prefWidth="131.0">
-            <items>
-              <FXCollections fx:factory="observableArrayList">
-                <String fx:value="GERAL" />
-                <String fx:value="TEXTO" />
-              </FXCollections>
-            </items>
-          </ComboBox>
-         </children></HBox>
       <Button layoutX="219.0" layoutY="295.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="295.0" />
       <Label layoutX="50.0" layoutY="29.0" text="Insira o Título" />
       <Label layoutX="51.0" layoutY="90.0" text="Insira o Gênero" />
-      <Label layoutX="45.0" layoutY="267.0" text="Esolha o Tipo de Livro" />
       <Label layoutX="51.0" layoutY="150.0" text="Insira o Autor" />
       <TextField fx:id="autor" layoutX="50.0" layoutY="171.0" prefWidth="300.0" />
       <Button fx:id="sair" layoutX="306.0" layoutY="295.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
-      <TextField fx:id="id" layoutX="50.0" layoutY="232.0" prefWidth="300.0" />
-      <Label layoutX="51.0" layoutY="211.0" text="Insira o ID" />
+      <TextField fx:id="nCopias" layoutX="50.0" layoutY="232.0" prefWidth="300.0" />
+      <Label layoutX="52.0" layoutY="211.0" text="Insira o n de Cópias" />
   </children>
 </AnchorPane>

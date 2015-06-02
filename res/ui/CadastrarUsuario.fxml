@@ -13,7 +13,7 @@
   <children>
     <HBox id="HBox" alignment="CENTER" layoutX="43.0" layoutY="177.0" prefHeight="30.0" prefWidth="150.0" spacing="5.0">
          <children>
-          <ComboBox id="comboInterval" fx:id="tipoUsuario" editable="false" onAction="#escolheTipoUsuario" prefHeight="22.0" prefWidth="131.0">
+          <ComboBox id="comboInterval" fx:id="tipoUsuario" editable="false" prefHeight="22.0" prefWidth="131.0">
             <items>
               <FXCollections fx:factory="observableArrayList">
                 <String fx:value="ALUNO" />

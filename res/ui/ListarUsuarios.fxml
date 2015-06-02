@@ -7,20 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.usp.bbt.ui.ListarUsuariosController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.usp.bbt.ui.ListarUsuariosController">
    <children>
-      <Label layoutX="267.0" layoutY="41.0" text="Usuários">
+      <Label layoutX="242.0" layoutY="39.0" text="Usuários">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <TableView layoutX="32.0" layoutY="126.0" prefHeight="250.0" prefWidth="600.0">
-        <columns>
-          <TableColumn prefWidth="134.0" text="Nome de Usuário" />
-          <TableColumn prefWidth="309.0" text="Nome" />
-            <TableColumn minWidth="0.0" prefWidth="156.0" text="Tipo de Usuário" />
-        </columns>
-      </TableView>
       <Button fx:id="sair" layoutX="570.0" layoutY="400.0" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+      <ListView layoutX="57.0" layoutY="134.0" prefHeight="250.0" prefWidth="500.0" />
    </children>
 </AnchorPane>

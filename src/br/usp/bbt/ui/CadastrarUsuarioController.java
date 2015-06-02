@@ -46,17 +46,12 @@ public class CadastrarUsuarioController implements Initializable {
     }    
 
     @FXML
-    private void escolheTipoUsuario(ActionEvent event) {
-        
-    }
-
-    @FXML
     private void salvar(ActionEvent event) throws IOException {       
         
         bib.cadastraUsuario(
                 tipoUsuario.getValue(),
-                nomeDeUsuario.getCharacters().toString(),
-                nome.getCharacters().toString()
+                nomeDeUsuario.getText(),
+                nome.getText()
         );
         
         sair.getScene().getWindow().hide();

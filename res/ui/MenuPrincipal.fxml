@@ -20,6 +20,7 @@
       <Button layoutX="205.0" layoutY="193.0" mnemonicParsing="false" onAction="#listarLivros" prefWidth="90.0" text="Listar Livros" textAlignment="CENTER" wrapText="true" />
       <Button alignment="CENTER" layoutX="353.0" layoutY="136.0" mnemonicParsing="false" onAction="#emprestimos" prefHeight="40.0" prefWidth="97.0" text="Empréstimo" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="50.0" />
       <Button alignment="CENTER" layoutX="353.0" layoutY="193.0" mnemonicParsing="false" onAction="#devolucoes" prefHeight="40.0" prefWidth="97.0" text="Devolução" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.rightAnchor="50.0" />
-      <Button fx:id="sair" layoutX="219.0" layoutY="261.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
+      <Button fx:id="sair" layoutX="283.0" layoutY="248.0" mnemonicParsing="false" onAction="#sair" prefHeight="40.0" prefWidth="90.0" text="Sair" />
+      <Button layoutX="123.0" layoutY="248.0" mnemonicParsing="false" onAction="#selecionaData" prefWidth="90.0" text="Selecionar Data" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

@@ -35,8 +35,6 @@ public class EmprestarLivroController implements Initializable {
     @FXML
     private TextField id;
     @FXML
-    private DatePicker dataRetorno;
-    @FXML
     private Button sair;
     @FXML
     private ListView<?> list;
@@ -58,10 +56,6 @@ public class EmprestarLivroController implements Initializable {
 
     @FXML
     private void emprestar(ActionEvent event) throws IOException {
-        System.out.println(nomeDeUsuario.getCharacters());
-        System.out.println(dataRetorno.getValue());
-        System.out.println(id.getCharacters());
-        
         Scene scn = sair.getScene();
         Stage menu = (Stage) scn.getWindow();
         menu.close();
@@ -73,11 +67,31 @@ public class EmprestarLivroController implements Initializable {
     }
 
     @FXML
-    private void adicionar(ActionEvent event) {
-      
-        emprestimo.add(dataRetorno.getValue());
+    private void adicionar(ActionEvent event){
         emprestimo.add(nomeDeUsuario.getText());
         emprestimo.add(id.getText());  
+        
+        try{
+			bib.registraEmprestimo(nomeDeUsuario.getText(), Integer.parseInt(id.getText()));
+        }
+        catch(EmprestimoException e) {
+			Scene scn = sair.getScene();
+			Stage menu = (Stage) scn.getWindow();
+			Stage stage = new Stage();
+			stage.setResizable(false);
+			stage.setTitle("FALHA");
+			
+			try{
+				Parent root = FXMLLoader.load(getClass().getResource("/res/ui/EmprestimoException.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+			catch(IOException io)
+			{
+				System.out.println("erro ao abrir EmprestimoException.fxml");
+			}
+        }
     }
     
 }

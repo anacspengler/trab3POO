@@ -31,8 +31,6 @@ public class ReceberLivroController implements Initializable {
     @FXML
     private TextField id;
     @FXML
-    private TextField nomeDeUsuario;
-    @FXML
     private Button sair;
     @FXML
     private ListView<?> list;
@@ -40,6 +38,7 @@ public class ReceberLivroController implements Initializable {
     private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
     
     public static final ObservableList devolucao = FXCollections.observableArrayList();
+    
 
     /**
      * Initializes the controller class.
@@ -54,7 +53,6 @@ public class ReceberLivroController implements Initializable {
 
     @FXML
     private void receber(ActionEvent event) throws IOException {
-                
         Scene scn = sair.getScene();
         Stage menu = (Stage) scn.getWindow();
         menu.close();
@@ -67,8 +65,8 @@ public class ReceberLivroController implements Initializable {
 
     @FXML
     private void adicionar(ActionEvent event) {
-        devolucao.add(nomeDeUsuario.getText());
         devolucao.add(id.getText());  
+        bib.registraDevolucao(Integer.parseInt(id.getText()));
     }
     
 }
