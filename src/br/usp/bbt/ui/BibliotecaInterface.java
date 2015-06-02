@@ -20,10 +20,9 @@ public class BibliotecaInterface extends Application {
        
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/SelecionarData.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/res/ui/MenuPrincipal.fxml"));
         
         Scene scene = new Scene(root);
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
     }

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import br.usp.bbt.*;
 
 /**
  * FXML Controller class
@@ -25,6 +26,8 @@ public class AvisoController implements Initializable {
     @FXML
     private Button nao;
 
+    private final Biblioteca bib = MenuPrincipalController.pegaBiblioteca();
+
     /**
      * Initializes the controller class.
      */
@@ -35,6 +38,12 @@ public class AvisoController implements Initializable {
 
     @FXML
     private void fechar(ActionEvent event) {
+        try {
+            bib.salvaDados();
+        } catch (Exception e) {
+            System.err.println("Não conseguiu salvar ao sair!");
+            System.err.println(e);
+        }
         Platform.exit();
     }
 

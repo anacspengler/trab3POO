@@ -33,7 +33,7 @@ public class MenuPrincipalController implements Initializable  {
      * Usado por todos os outros controladores para acessar os dados e
      * lidar com a biblioteca em gera.
      */
-    private static final Biblioteca bib = new Biblioteca("bib");
+    private static final Biblioteca bib = new Biblioteca(".");
 
 
     static Biblioteca pegaBiblioteca() {return bib;}
@@ -58,7 +58,6 @@ public class MenuPrincipalController implements Initializable  {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Cadastro de Usuarios");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/CadastrarUsuario.fxml"));
@@ -74,7 +73,6 @@ public class MenuPrincipalController implements Initializable  {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Cadastro de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/CadastrarLivro.fxml"));
@@ -90,7 +88,6 @@ public class MenuPrincipalController implements Initializable  {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Lista de Usuarios");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/ListarUsuarios.fxml"));
@@ -106,7 +103,6 @@ public class MenuPrincipalController implements Initializable  {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Lista de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/ListarLivro.fxml"));
@@ -122,7 +118,6 @@ public class MenuPrincipalController implements Initializable  {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Empréstimo de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/EmprestarLivro.fxml"));
@@ -138,7 +133,6 @@ public class MenuPrincipalController implements Initializable  {
         Scene scn = window.getScene();
         Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Devolução de Livros");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/ReceberLivro.fxml"));
@@ -151,10 +145,7 @@ public class MenuPrincipalController implements Initializable  {
 
     @FXML
     private void sair(ActionEvent event) throws IOException {
-        Scene scn = window.getScene();
-        Stage menu = (Stage) scn.getWindow();
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Terminar");
         Parent root = FXMLLoader.load(getClass().getResource("/res/ui/Aviso.fxml"));
